@@ -21,7 +21,5 @@ Route::get('logout',  function() {
     Auth::logout();
     return redirect('/');
 });
+Route::view('/about', 'about');
 Route::get('/{post:slug}', [PostController::class, 'show'])->name('view');
-Route::get("/about", function(){
-    return view("static.about");
-});

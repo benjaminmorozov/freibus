@@ -17,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Navigation\NavigationGroup;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -39,6 +40,14 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
+            ])
+            ->navigationGroups([
+                        NavigationGroup::make()
+                             ->label('Content')
+                             ->icon('heroicon-o-shopping-cart'),
+                        NavigationGroup::make()
+                            ->label('Static')
+                            ->icon('heroicon-o-pencil'),
             ])
             ->middleware([
                 EncryptCookies::class,

@@ -1,1 +1,7 @@
-<img class="h-auto max-w-full shrink basis-0 grow hover:opacity-75"src="{{$carousel->getThumbnail()}}">
+<div><img style="user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;" src="{{$carousel->getThumbnail()}}">
+</div>

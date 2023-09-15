@@ -17,7 +17,7 @@ class CarouselResource extends Resource
 {
     protected static ?string $model = Carousel::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Static';
 
     public static function form(Form $form): Form
     {
@@ -35,7 +35,8 @@ class CarouselResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('thumbnail')
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->size(100)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('order')
                     ->numeric()

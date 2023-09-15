@@ -18,7 +18,7 @@ class PostController extends Controller
         $posts = Post::query()
             ->orderBy('published_at', 'desc')
             ->paginate(2);
-        $carousels = Carousel::all();
+        $carousels = Carousel::all()->sortBy('order');
         return view('home', compact('posts', 'carousels'));
     }
 
@@ -43,7 +43,18 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('post.view', compact('post'));
+        $next = Post::query()
+            ->whereDate('published_at', '<', $post->published_at)
+            ->orderBy('published_at', 'desc')
+            ->limit(1)
+            ->first();
+        $prev = Post::query()
+            ->whereDate('published_at', '>', $post->published_at)
+            ->orderBy('published_at', 'asc')
+            ->limit(1)
+            ->first();
+        $carousels = Carousel::all()->sortBy('order');
+        return view('post.view', compact('post', 'carousels', 'prev', 'next'));
     }
 
     /**

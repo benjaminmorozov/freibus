@@ -17,8 +17,6 @@ class TextWidgetResource extends Resource
 {
     protected static ?string $model = TextWidget::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
     protected static ?string $navigationGroup = 'Static';
 
     public static function form(Form $form): Form
