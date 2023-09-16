@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -61,9 +60,9 @@
 
     <!-- Text Header -->
     <header class="w-full container mx-auto">
-        <div class="flex flex-col items-center py-12">
+        <div class="flex flex-col items-center py-8">
             <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="/">
-                <img src="https://www.freibus.sk/data/freibus.sk/images/tmp/freibus_logo_691d16166e1c49cf238c.svg" style="text-align:left;width:100%;max-width:260px;max-height:260px;" data-cycle-desc="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o." alt="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o.">
+                <img src="{{ asset('/images/logo.svg') }}" style="text-align:left;width:100%;max-width:260px;max-height:260px;" data-cycle-desc="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o." alt="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o.">
                 <!-- {{config('app.name');}} -->
             </a>
         </div>
@@ -82,22 +81,22 @@
         </div>
         <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Poznávacie zájazdy</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Odporúčané zájazdy</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Zber a recyklácia stavebného odpadu</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Autobusová doprava</a>
+                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Aktuality a akcie</a>
+                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Cestovné destinácie</a>
+                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Zberný dvor</a>
+                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Hodnotenia a recenzie</a>
             </div>
         </div>
     </nav>
 
     {{ $slot }}
 
-    <footer class="w-full border-t bg-white pb-12">
+    <footer class="w-full border-t bg-white">
         <div class="w-full container mx-auto flex flex-col items-center">
             <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
                 <a href="#" class="uppercase px-3">O nás</a>
                 <a href="#" class="uppercase px-3">Privacy Policy</a>
-                <a href="#" class="uppercase px-3">Všeobecné zmluvné podmienky</a>
+                <a href="/vseozmluvpod" class="uppercase px-3">Všeobecné zmluvné podmienky</a>
                 <a href="#" class="uppercase px-3">Kontakt</a>
             </div>
             <div class="uppercase pb-6">with <3 stvorka@ssosta 2023</div>

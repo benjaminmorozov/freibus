@@ -22,4 +22,5 @@ Route::get('logout',  function() {
     return redirect('/');
 });
 Route::view('/about', 'about');
+Route::view('/vseozmluvpod', 'vseozmluvpod');
 Route::get('/{post:slug}', [PostController::class, 'show'])->name('view');
