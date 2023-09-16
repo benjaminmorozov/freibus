@@ -36,6 +36,8 @@ class CategoryResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(2048),
+                Forms\Components\ColorPicker::make('colour')
+                    ->required(),
             ]);
     }
 

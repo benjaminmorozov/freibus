@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Carousel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,11 @@ Route::get('logout',  function() {
     Auth::logout();
     return redirect('/');
 });
-Route::view('/about', 'about');
+// Route::view('/about', 'about'); <- no carousel data
+Route::get('/about', function () { // <- bypass need for postcontroller, thus we can just use
+    $carousels = Carousel::all()->sortBy('order');
+    return view('about', compact('carousels'));
+});
 Route::view('/vseozmluvpod', 'vseozmluvpod');
 Route::get('/{post:slug}', [PostController::class, 'show'])->name('view');
+Route::view('/api/posts/get', 'api');

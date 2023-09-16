@@ -11,7 +11,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug'];
+    protected $fillable = ['title', 'slug', 'colour'];
 
     public function posts():BelongsToMany {
         return $this->belongsToMany(Posts::class);

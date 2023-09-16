@@ -5,7 +5,7 @@
             </a>
             <div class="bg-white flex flex-col justify-start p-6 items-start">
                 @foreach($post->categories as $category)
-                    <span class="flex rounded-full text-indigo-100 bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">{{$category->title}}</span>
+                    <span style="background-color: {{$category->colour}}" class="flex rounded-full text-white uppercase px-2 py-1 text-xs font-bold mr-3">{{$category->title}}</span>
                 @endforeach
 
                 <a href="{{route('view', $post)}}" class="text-3xl font-bold hover:text-gray-700 pb-4">{{$post->title}}</a>

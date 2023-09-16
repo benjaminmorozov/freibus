@@ -53,8 +53,7 @@ class PostController extends Controller
             ->orderBy('published_at', 'asc')
             ->limit(1)
             ->first();
-        $carousels = Carousel::all()->sortBy('order');
-        return view('post.view', compact('post', 'carousels', 'prev', 'next'));
+        return view('post.view', compact('post', 'prev', 'next'));
     }
 
     /**

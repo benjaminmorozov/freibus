@@ -1,3 +1,7 @@
+<?php
+use App\Models\Carousel;
+$carousels = $carousels = Carousel::all()->sortBy('order');
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -91,6 +95,12 @@
 
     {{ $slot }}
 
+    <div class="relative" style="justify-content: space-between; display: flex;">
+        @foreach($carousels as $carousel)
+        <x-carousel-item :carousel="$carousel"></x-carousel-item>
+        @endforeach
+    </div>
+
     <footer class="w-full border-t bg-white">
         <div class="w-full container mx-auto flex flex-col items-center">
             <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
@@ -102,6 +112,9 @@
             <div class="uppercase pb-6">with <3 stvorka@ssosta 2023</div>
         </div>
     </footer>
+
+    <!-- Flowbite -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 
 </body>
 </html>
