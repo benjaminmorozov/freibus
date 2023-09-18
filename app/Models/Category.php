@@ -14,6 +14,10 @@ class Category extends Model
     protected $fillable = ['title', 'slug', 'colour'];
 
     public function posts():BelongsToMany {
-        return $this->belongsToMany(Posts::class);
+        return $this->belongsToMany(Post::class);
+    }
+
+    public function tours():BelongsToMany {
+        return $this->belongsToMany(Tour::class);
     }
 }

@@ -4,24 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
-use Illuminate\View\View;
-use App\Models\Carousel;
 
-class PostController extends Controller
+class APIPostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        $posts = Post::query()
-            ->orderBy('published_at', 'desc')
-            ->paginate(2);
-        return view('home', compact('posts'));
-    }
-
-    public function indexJson() {
         return response()->json(Post::all());
     }
 
@@ -44,19 +34,17 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        $next = Post::query()
-            ->whereDate('published_at', '<', $post->published_at)
-            ->orderBy('published_at', 'desc')
-            ->limit(1)
-            ->first();
-        $prev = Post::query()
-            ->whereDate('published_at', '>', $post->published_at)
-            ->orderBy('published_at', 'asc')
-            ->limit(1)
-            ->first();
-        return view('post.view', compact('post', 'prev', 'next'));
+        $post = Post::find($id); 
+        if(!empty($post))
+        {
+            return response()->json($post);
+        } else {
+            return response()->json([
+                "message" => "Post not found"
+            ], 404);
+        }
     }
 
     /**

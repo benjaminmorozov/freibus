@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\APIPostController;
+use App\Http\Controllers\APITourController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/posts', [APIPostController::class, 'index']);
+Route::get('/posts/{id}', [APIPostController::class, 'show']);
+
+Route::get('/tours', [APITourController::class, 'index']);
+Route::get('/tours/{id}', [APITourController::class, 'show']);

@@ -44,7 +44,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                         NavigationGroup::make()
                              ->label('Content')
-                             ->icon('heroicon-o-shopping-cart'),
+                             ->icon('heroicon-o-archive-box'),
                         NavigationGroup::make()
                             ->label('Static')
                             ->icon('heroicon-o-pencil'),

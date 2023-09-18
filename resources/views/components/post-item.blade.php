@@ -10,7 +10,7 @@
 
                 <a href="{{route('view', $post)}}" class="text-3xl font-bold hover:text-gray-700 pb-4">{{$post->title}}</a>
                 <p href="#" class="text-sm pb-3">
-                    <a href="#" class="font-semibold hover:text-gray-800">{{$post->user->name}}</a>, publikované {{$post->getFormattedDate()}}
+                    <!-- <a href="#" class="font-semibold hover:text-gray-800">{{$post->user->name}}</a>, we'll keep usernames as an internal security measure publikované -->{{$post->getFormattedDate()}}
                 </p>
                 <a href="{{route('view', $post)}}" class="pb-6">{{$post->shortBody()}}</a>
                 <a href="{{route('view', $post)}}" class="uppercase text-gray-800 hover:text-black">Prečítať <i class="fas fa-arrow-right"></i></a>

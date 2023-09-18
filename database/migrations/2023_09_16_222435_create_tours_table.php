@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title', 2048);
+            $table->string('slug', 2048);
+            $table->decimal('price', 8, 2);
+            $table->string('places');
+            $table->json('images');
+            $table->longText('body');
+            $table->date('date');
             $table->timestamps();
         });
     }

@@ -2,27 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Tour;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\View\View;
-use App\Models\Carousel;
 
-class PostController extends Controller
+class TourController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        $posts = Post::query()
-            ->orderBy('published_at', 'desc')
+        $tours = Tour::query()
+            ->orderBy('date', 'desc')
             ->paginate(2);
-        return view('home', compact('posts'));
-    }
-
-    public function indexJson() {
-        return response()->json(Post::all());
+        return view('tours', compact('tours'));
     }
 
     /**
@@ -44,25 +38,25 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Tour $tour)
     {
-        $next = Post::query()
-            ->whereDate('published_at', '<', $post->published_at)
-            ->orderBy('published_at', 'desc')
+        $next = Tour::query()
+            ->whereDate('date', '<', $tour->date)
+            ->orderBy('date', 'desc')
             ->limit(1)
             ->first();
-        $prev = Post::query()
-            ->whereDate('published_at', '>', $post->published_at)
-            ->orderBy('published_at', 'asc')
+        $prev = Tour::query()
+            ->whereDate('date', '>', $tour->date)
+            ->orderBy('date', 'asc')
             ->limit(1)
             ->first();
-        return view('post.view', compact('post', 'prev', 'next'));
+        return view('tour.view', compact('tour', 'prev', 'next'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Tour $tour)
     {
         //
     }
@@ -70,7 +64,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Tour $tour)
     {
         //
     }
@@ -78,7 +72,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Tour $tour)
     {
         //
     }

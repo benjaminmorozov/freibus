@@ -14,7 +14,7 @@
                     @endforeach
                     <h1 class="text-3xl font-bold hover:text-gray-700 pb-4">{{$post->title}}</h1>
                     <p href="#" class="text-sm pb-8">
-                        <a href="#" class="font-semibold hover:text-gray-800">{{$post->user->name}}</a>, publikované {{$post->getFormattedDate()}}
+                        <!-- <a href="#" class="font-semibold hover:text-gray-800">{{$post->user->name}}</a>, we'll keep usernames as an internal security measure publikované -->{{$post->getFormattedDate()}}
                     </p>
                     <div>{!! $post->body !!}</div>
                 </div>

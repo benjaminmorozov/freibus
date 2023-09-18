@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TourController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,6 @@ Route::get('/about', function () { // <- bypass need for postcontroller, thus we
     return view('about', compact('carousels'));
 });
 Route::view('/vseozmluvpod', 'vseozmluvpod');
-Route::get('/{post:slug}', [PostController::class, 'show'])->name('view');
-Route::view('/api/posts/get', 'api');
+Route::get('/tours', [TourController::class, 'index'])->name('tours');
+Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('view');
+Route::get('/tours/{tour:slug}', [TourController::class, 'show'])->name('tourview');
