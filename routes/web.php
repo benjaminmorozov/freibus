@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Models\Carousel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -32,3 +33,20 @@ Route::view('/vseozmluvpod', 'vseozmluvpod');
 Route::get('/tours', [TourController::class, 'index'])->name('tours');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('view');
 Route::get('/tours/{tour:slug}', [TourController::class, 'show'])->name('tourview');
+
+
+
+
+// breeze auth stuff
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

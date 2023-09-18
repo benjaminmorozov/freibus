@@ -36,10 +36,11 @@ $carousels = $carousels = Carousel::all()->sortBy('order');
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                     @if(Auth::check())
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="/admin">Dashboard</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/profile">Profil</a></li>
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="/logout">Odhlásiť sa</a></li>
                     @else
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/admin/login">Prihlásiť sa</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/admin">Zaregistrovať sa</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/login">Prihlásiť sa</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/register">Zaregistrovať sa</a></li>
                     @endif
                 </ul>
             </nav>
