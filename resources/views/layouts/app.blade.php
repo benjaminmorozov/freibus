@@ -35,7 +35,9 @@ $carousels = $carousels = Carousel::all()->sortBy('order');
             <nav>
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                     @if(Auth::check())
+                    @if(Auth::user()->hasRole('admin'))
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="/admin">Dashboard</a></li>
+                    @endif
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="/profile">Profil</a></li>
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="/logout">Odhlásiť sa</a></li>
                     @else
