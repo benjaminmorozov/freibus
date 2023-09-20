@@ -232,14 +232,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="mt-10">
-                    <h2 class="text-sm font-medium text-gray-900">Detaily</h2>
-
-                    <div class="mt-4 space-y-6">
-                        <p class="text-sm text-gray-600">The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
