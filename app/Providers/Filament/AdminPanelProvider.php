@@ -48,6 +48,9 @@ class AdminPanelProvider extends PanelProvider
                         NavigationGroup::make()
                             ->label('Static')
                             ->icon('heroicon-o-pencil'),
+                        NavigationGroup::make()
+                            ->label('Settings')
+                            ->icon('heroicon-o-adjustments-horizontal'),
             ])
             ->middleware([
                 EncryptCookies::class,

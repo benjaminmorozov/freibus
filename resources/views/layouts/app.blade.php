@@ -1,5 +1,6 @@
 <?php
 use App\Models\Carousel;
+use App\Models\Setting;
 $carousels = $carousels = Carousel::all()->sortBy('order');
 ?>
 <!DOCTYPE html>
@@ -48,18 +49,26 @@ $carousels = $carousels = Carousel::all()->sortBy('order');
             </nav>
 
             <div class="flex items-center text-lg no-underline text-white pr-6">
-                <a class="" href="#">
+                @if ($facebook = Setting::where('name','facebook')->get()->value('value'))
+                <a class="" href="{{$facebook}}">
                     <i class="fab fa-facebook"></i>
                 </a>
-                <a class="pl-6" href="#">
+                @endif
+                @if ($instagram = Setting::where('name','instagram')->get()->value('value'))
+                <a class="pl-6" href="{{$instagram}}">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a class="pl-6" href="#">
+                @endif
+                @if ($twitter = Setting::where('name','twitter')->get()->value('value'))
+                <a class="pl-6" href="{{$twitter}}">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="pl-6" href="#">
+                @endif
+                @if ($linkedin = Setting::where('name','linkedin')->get()->value('value'))
+                <a class="pl-6" href="{{$linkedin}}">
                     <i class="fab fa-linkedin"></i>
                 </a>
+                @endif
             </div>
         </div>
 
@@ -88,10 +97,11 @@ $carousels = $carousels = Carousel::all()->sortBy('order');
         </div>
         <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Aktuality a akcie</a>
+                <a href="/" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Aktuality a akcie</a>
                 <a href="/tours" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Cestovné destinácie</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Zberný dvor</a>
-                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Hodnotenia a recenzie</a>
+                <a href="/zbernydvor" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Zberný dvor</a>
+                <a href="/reviews" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Hodnotenia a recenzie</a>
+                <a href="/contact" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Kontakt</a>
             </div>
         </div>
     </nav>
@@ -107,10 +117,10 @@ $carousels = $carousels = Carousel::all()->sortBy('order');
     <footer class="w-full border-t bg-white">
         <div class="w-full container mx-auto flex flex-col items-center">
             <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-                <a href="#" class="uppercase px-3">O nás</a>
-                <a href="#" class="uppercase px-3">Privacy Policy</a>
-                <a href="/vseozmluvpod" class="uppercase px-3">Všeobecné zmluvné podmienky</a>
-                <a href="#" class="uppercase px-3">Kontakt</a>
+                <a href="/about" class="uppercase px-3">O nás</a>
+                <a href="/privacypolicy" class="uppercase px-3">Ochrana osobných údajov</a>
+                <a href="/termsconditions" class="uppercase px-3">Všeobecné zmluvné podmienky</a>
+                <a href="/contact" class="uppercase px-3">Kontakt</a>
             </div>
             <div class="uppercase pb-6">with <3 stvorka@ssosta 2023</div>
         </div>

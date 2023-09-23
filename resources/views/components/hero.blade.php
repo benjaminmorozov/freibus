@@ -2,7 +2,7 @@
     <div class="grid max-w-screen-xl px-4 pt-12 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
             <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">Špička v cestovaní</h1>
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">Osobná autobusová doprava, organizovanie zájazdov, výletov, ubytovania, leteniek, sprievodcovské služby, logistika spoločenských podujatí a viac...</p>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">Osobná autobusová doprava, organizovanie zájazdov, výletov, ubytovania, leteniek, logistika spoločenských podujatí a omnoho viacej!</p>
             <form>
                 <div class="flex">
                     <label for="location-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Your Email</label>
