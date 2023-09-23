@@ -39,6 +39,7 @@ Route::view('/zbernydvor', 'zbernydvor');
 Route::get('/tours', [TourController::class, 'index'])->name('tours');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('view');
 Route::get('/tours/{tour:slug}', [TourController::class, 'show'])->name('tourview');
+Route::get('search', [TourController::class, 'search'])->name('search');
 
 
 

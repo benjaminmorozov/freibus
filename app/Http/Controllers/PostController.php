@@ -17,7 +17,7 @@ class PostController extends Controller
         $posts = Post::query()
             ->orderBy('published_at', 'desc')
             ->paginate(2);
-        return view('home', compact('posts'));
+        return view('posts', compact('posts'));
     }
 
     /**

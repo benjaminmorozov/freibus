@@ -1,19 +1,23 @@
 <?php
-/**  @var $posts \Illuminate\Pagination\LengthAwarePaginator */
+/**  @var $tours \Illuminate\Pagination\LengthAwarePaginator */
 ?>
 
 <x-app-layout>
+    <x-hero />
+
+    <x-announcement />
+
     <div class="container mx-auto flex flex-wrap py-4">
-        <!-- Posts Section -->
+        <!-- Tours Section -->
         <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
-            @foreach($posts as $post)
-                <x-post-item :post="$post"></x-post-item>
+            @foreach($tours as $tour)
+                <x-tour-item :tour="$tour"></x-tour-item>
             @endforeach
 
 
             <!-- pagination -->
-            {{$posts->onEachSide(1)->links()}}
+            {{$tours->onEachSide(1)->links()}}
 
         </section>
 

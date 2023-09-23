@@ -10,7 +10,7 @@
                 </a>
                 <div class="bg-white flex flex-col justify-start p-6 items-start">
                     @foreach($post->categories as $category)
-                        <span style="background-color: {{$category->colour}}" class="flex rounded-full text-white uppercase px-2 py-1 text-xs font-bold mr-3">{{$category->title}}</span>
+                        <span style="background-color: {{$category->colour}}" class="flex rounded-full text-white uppercase px-2 py-1 text-xs font-bold mr-3">{{$category->name}}</span>
                     @endforeach
                     <h1 class="text-3xl font-bold pb-4">{{$post->title}}</h1>
                     <p class="text-sm pb-8">

@@ -19,6 +19,18 @@ class TourController extends Controller
         return view('tours', compact('tours'));
     }
 
+    public function search(Request $request)
+    {
+        $q = $request->get('q');
+        $tours = Tour::query()
+            ->orderBy('tours.date', 'desc')
+            ->join('category_tour', 'tours.id', '=', 'category_tour.tour_id')
+            ->join('categories', 'categories.id', '=', 'category_tour.category_id')
+            ->where('tours.title', 'like', '%'.$q.'%')->orWhere('tours.places', 'like', '%'.$q.'%')->orWhere('categories.name', 'like', '%'.$q.'%')
+            ->paginate(2);
+        return view('tour.search', compact('tours'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
