@@ -22,10 +22,6 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function categories():BelongsToMany {
-        return $this->belongsToMany(Category::class);
-    }
-
     public function shortBody():String {
         return Str::words(strip_tags($this->body), 30); // 30words
     }

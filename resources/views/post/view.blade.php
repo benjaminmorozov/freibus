@@ -9,11 +9,8 @@
                     <img src="{{$post->getThumbnail()}}" style="width:100%; max-height:450px; object-fit: cover; overflow: hidden;">
                 </a>
                 <div class="bg-white flex flex-col justify-start p-6 items-start">
-                    @foreach($post->categories as $category)
-                        <span style="background-color: {{$category->colour}}" class="flex rounded-full text-white uppercase px-2 py-1 text-xs font-bold mr-3">{{$category->name}}</span>
-                    @endforeach
-                    <h1 class="text-3xl font-bold pb-4">{{$post->title}}</h1>
-                    <p class="text-sm pb-8">
+                    <h1 class="text-3xl font-bold pb-3">{{$post->title}}</h1>
+                    <p class="text-sm pb-2">
                         <!-- <a href="#" class="font-semibold hover:text-gray-800">{{$post->user->name}}</a>, we'll keep usernames as an internal security measure publikované -->{{$post->getFormattedDate()}}
                     </p>
                     <div>{!! $post->body !!}</div>

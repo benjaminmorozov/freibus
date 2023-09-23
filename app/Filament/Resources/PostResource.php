@@ -47,10 +47,6 @@ class PostResource extends Resource
 
                 Forms\Components\Card::make()
                     ->schema([
-                        Forms\Components\Select::make('category_id')
-                        ->multiple()
-                        ->relationship('categories', 'name')
-                        ->required(),
                         Forms\Components\FileUpload::make('thumbnail'),
                     ])->columnSpan(4),
             ])->columns(12);
