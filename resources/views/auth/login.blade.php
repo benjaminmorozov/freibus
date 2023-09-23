@@ -31,7 +31,7 @@
                             <a href="{{ route('password.request') }}" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Zabudnuté heslo?</a>
                         @endif
                     </div>
-                    <button type="submit" class="w-full bg-indigo-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">Prihlásiť sa</button>
+                    <button type="submit" class="w-full bg-primary text-white font-bold text-sm uppercase rounded hover:bg-secondary flex items-center justify-center px-2 py-3 mt-4">Prihlásiť sa</button>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                         Ešte nemáte účet? <a href="{{ route('register') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Zaregistrovať sa</a>
                     </p>

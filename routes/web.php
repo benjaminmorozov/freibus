@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ use App\Http\Controllers\TourController;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('logout',  function() {
     Auth::logout();
     return redirect('/');
@@ -29,7 +31,10 @@ Route::get('/about', function () { // <- bypass need for postcontroller, thus we
     $carousels = Carousel::all()->sortBy('order');
     return view('about', compact('carousels'));
 });
-Route::view('/termsconditions', 'termsconditions');
+Route::get('/termsconditions', function () { // <- bypass need for postcontroller, thus we can just use
+    $carousels = Carousel::all()->sortBy('order');
+    return view('termsconditions', compact('carousels'));
+});
 Route::view('/zbernydvor', 'zbernydvor');
 Route::get('/tours', [TourController::class, 'index'])->name('tours');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('view');

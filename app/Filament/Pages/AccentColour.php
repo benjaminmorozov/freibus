@@ -9,7 +9,6 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
 use Filament\Forms;
 use Filament\Forms\Form;
-use App\Config;
 use Filament\Notifications\Notification;
 use App\Models\Setting;
 
@@ -34,8 +33,11 @@ class AccentColour extends Page implements HasForms
     {
         return $form
             ->schema([
-                Forms\Components\ColorPicker::make('colour')
+                Forms\Components\ColorPicker::make('accentColour')
                     ->default(Setting::where('name','accentColour')->get()->value('value'))
+                    ->required(),
+                Forms\Components\ColorPicker::make('secondaryColour')
+                    ->default(Setting::where('name','secondaryColour')->get()->value('value'))
                     ->required(),
             ])
             ->statePath('data');
@@ -56,8 +58,13 @@ class AccentColour extends Page implements HasForms
             $accentColour = Setting::firstOrNew([
                 'name' => 'accentColour'
             ]);
-            $accentColour->value = $this->form->getState()['colour'];
+            $accentColour->value = $this->form->getState()['accentColour'];
             $accentColour->save();
+            $secondaryColour = Setting::firstOrNew([
+                'name' => 'secondaryColour'
+            ]);
+            $secondaryColour->value = $this->form->getState()['secondaryColour'];
+            $secondaryColour->save();
         } catch (Halt $exception) {
             return;
         }

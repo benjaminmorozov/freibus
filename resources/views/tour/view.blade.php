@@ -108,7 +108,7 @@
                             </svg>
                         </div>
                         <p class="sr-only">4 out of 5 stars</p>
-                        <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117 reviews</a>
+                        <a href="#" class="ml-3 text-sm font-medium text-primary hover:text-primary">117 reviews</a>
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                     <div class="mt-10">
                         <div class="flex items-center justify-between">
                             <h3 class="text-sm font-medium text-gray-900">Počet osôb</h3>
-                            <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Viac info</a>
+                            <a href="#" class="text-sm font-medium text-primary hover:text-primary">Viac info</a>
                         </div>
 
                         <fieldset class="mt-4">
@@ -207,7 +207,7 @@
                         </fieldset>
                     </div>
 
-                    <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Zarezervovať</button>
+                    <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-primary hover:bg-secondary px-8 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Zarezervovať</button>
                 </form>
             </div>
 

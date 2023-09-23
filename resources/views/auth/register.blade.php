@@ -35,7 +35,7 @@
                             <label for="terms" class="font-light text-gray-500 dark:text-gray-300">Prijímam <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
                         </div>
                     </div>
-                    <button type="submit" class="w-full bg-indigo-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">Vytvoriť účet</button>
+                    <button type="submit" class="w-full bg-primary text-white font-bold text-sm uppercase rounded hover:bg-secondary flex items-center justify-center px-2 py-3 mt-4">Vytvoriť účet</button>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                          Máte už účet? <a href="{{ route('login') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Prihlásiť sa</a>
                     </p>

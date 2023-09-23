@@ -1,8 +1,26 @@
 <?php
 use App\Models\Carousel;
+use App\Models\Social;
 use App\Models\Setting;
 $carousels = $carousels = Carousel::all()->sortBy('order');
 ?>
+<style>
+.bg-primary {
+    background-color:{{Setting::where('name','accentColour')->get()->value('value')}};
+}
+.bg-secondary {
+    background-color:{{Setting::where('name','secondaryColour')->get()->value('value')}};
+}
+.hover\:bg-secondary:hover {
+    background-color:{{Setting::where('name','secondaryColour')->get()->value('value')}};
+}
+.text-primary {
+    color:{{Setting::where('name','accentColour')->get()->value('value')}};
+}
+.hover\:text-primary:hover {
+    color:{{Setting::where('name','secondaryColour')->get()->value('value')}};
+}
+</style>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -30,7 +48,7 @@ $carousels = $carousels = Carousel::all()->sortBy('order');
 <body class="bg-white font-family-karla">
 
     <!-- Top Bar Nav -->
-    <nav class="w-full py-4 bg-indigo-800 shadow">
+    <nav class="w-full py-4 bg-primary shadow">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
             <nav>
@@ -49,22 +67,22 @@ $carousels = $carousels = Carousel::all()->sortBy('order');
             </nav>
 
             <div class="flex items-center text-lg no-underline text-white pr-6">
-                @if ($facebook = Setting::where('name','facebook')->get()->value('value'))
+                @if ($facebook = Social::where('name','facebook')->get()->value('url'))
                 <a class="" href="{{$facebook}}">
                     <i class="fab fa-facebook"></i>
                 </a>
                 @endif
-                @if ($instagram = Setting::where('name','instagram')->get()->value('value'))
+                @if ($instagram = Social::where('name','instagram')->get()->value('url'))
                 <a class="pl-6" href="{{$instagram}}">
                     <i class="fab fa-instagram"></i>
                 </a>
                 @endif
-                @if ($twitter = Setting::where('name','twitter')->get()->value('value'))
+                @if ($twitter = Social::where('name','twitter')->get()->value('url'))
                 <a class="pl-6" href="{{$twitter}}">
                     <i class="fab fa-twitter"></i>
                 </a>
                 @endif
-                @if ($linkedin = Setting::where('name','linkedin')->get()->value('value'))
+                @if ($linkedin = Social::where('name','linkedin')->get()->value('url'))
                 <a class="pl-6" href="{{$linkedin}}">
                     <i class="fab fa-linkedin"></i>
                 </a>
@@ -97,7 +115,7 @@ $carousels = $carousels = Carousel::all()->sortBy('order');
         </div>
         <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                <a href="/" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Aktuality a akcie</a>
+                <a href="/posts" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Aktuality a akcie</a>
                 <a href="/tours" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Cestovné destinácie</a>
                 <a href="/zbernydvor" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Zberný dvor</a>
                 <a href="/reviews" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Hodnotenia a recenzie</a>

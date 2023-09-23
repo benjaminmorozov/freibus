@@ -6,7 +6,6 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
-use App\Models\Carousel;
 
 class PostController extends Controller
 {
@@ -19,10 +18,6 @@ class PostController extends Controller
             ->orderBy('published_at', 'desc')
             ->paginate(2);
         return view('home', compact('posts'));
-    }
-
-    public function indexJson() {
-        return response()->json(Post::all());
     }
 
     /**

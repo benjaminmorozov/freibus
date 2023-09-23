@@ -34,7 +34,7 @@
         			        </div>
         				@endif
         			</div>
-        			<button type="submit" class="w-full bg-indigo-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">Uložiť</button>
+        			<button type="submit" class="w-full bg-primary text-white font-bold text-sm uppercase rounded hover:bg-secondary flex items-center justify-center px-2 py-3 mt-4">Uložiť</button>
         			@if (session('status') === 'profile-updated')
         				<p
         					x-data="{ show: true }"
@@ -69,7 +69,7 @@
         				<input type="password" name="password_confirmation" id="password_confirmation" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
         				<x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         			</div>
-        			<button type="submit" class="w-full bg-indigo-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">Uložiť</button>
+        			<button type="submit" class="w-full bg-primary text-white font-bold text-sm uppercase rounded hover:bg-secondary flex items-center justify-center px-2 py-3 mt-4">Uložiť</button>
         			@if (session('status') === 'password-updated')
         			<p
         				x-data="{ show: true }"
