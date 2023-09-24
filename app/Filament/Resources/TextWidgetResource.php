@@ -23,15 +23,16 @@ class TextWidgetResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('key')
+                Forms\Components\TextInput::make('order')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\FileUpload::make('image')
-                    ->image(),
+                    ->numeric()
+                    ->default(TextWidget::max('order')+1),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(2048),
-                Forms\Components\Textarea::make('content')
+                Forms\Components\FileUpload::make('image')
+                    ->image(),
+                Forms\Components\Textarea::make('body')
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('active')
                     ->required(),
@@ -44,8 +45,9 @@ class TextWidgetResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('key')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('order')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('active')
@@ -71,7 +73,7 @@ class TextWidgetResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-            ]);
+            ])->reorderable('order');
     }
 
     public static function getRelations(): array

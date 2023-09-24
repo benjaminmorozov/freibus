@@ -10,59 +10,9 @@ class TextWidget extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'key', 'image', 'title', 'content', 'active', 'link'
-    ];
+    protected $fillable = ['order', 'title', 'image', 'body', 'active', 'link'];
 
-    public static function getTitle(string $key): string { // try to find in cache, if not found, execute function to make from scratch
-        $widget = Cache::get('text-widget-'.$key, function() use($key) {
-            return TextWidget::query()
-                ->where('key', '=', $key)
-                ->where('active', '=', 1)
-                ->first();
-        });
-        if($widget) {
-            return $widget->title;
-        }
-        return '';
-    }
-
-    public static function getActive(string $key): bool {
-        $widget = Cache::get('text-widget-'.$key, function() use($key) {
-            return TextWidget::query()
-                ->where('key', '=', $key)
-                ->where('active', '=', 1)
-                ->first();
-        });
-        if($widget) {
-            return True;
-        }
-        return False;
-    }
-
-    public static function getContent(string $key): string {
-        $widget = Cache::get('text-widget-'.$key, function() use($key) {
-            return TextWidget::query()
-                ->where('key', '=', $key)
-                ->where('active', '=', 1)
-                ->first();
-        });
-        if($widget) {
-            return $widget->content;
-        }
-        return '';
-    }
-
-    public static function getLink(string $key): string {
-        $widget = Cache::get('text-widget-'.$key, function() use($key) {
-            return TextWidget::query()
-                ->where('key', '=', $key)
-                ->where('active', '=', 1)
-                ->first();
-        });
-        if($widget) {
-            return $widget->link;
-        }
-        return '';
+    public function shortBody():String {
+        return Str::words(strip_tags($this->body), 30); // 30words
     }
 }

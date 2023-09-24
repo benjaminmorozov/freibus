@@ -27,7 +27,7 @@ class CarouselResource extends Resource
                 Forms\Components\TextInput::make('order')
                     ->required()
                     ->numeric()
-                    ->default(0),
+                    ->default(Carousel::max('order')+1),
             ]);
     }
 
@@ -35,12 +35,12 @@ class CarouselResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('thumbnail')
-                    ->size(100)
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('order')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->size(100)
+                    ->searchable(),
             ])->defaultSort('order', 'asc')
             ->filters([
                 //
@@ -56,7 +56,7 @@ class CarouselResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-            ]);
+            ])->reorderable('order');
     }
 
     public static function getPages(): array

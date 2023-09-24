@@ -2,7 +2,7 @@
 use App\Models\Carousel;
 use App\Models\Social;
 use App\Models\Setting;
-$carousels = $carousels = Carousel::all()->sortBy('order');
+$carousels = Carousel::all()->sortBy('order');
 ?>
 <style>
 .bg-primary {

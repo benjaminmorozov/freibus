@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('carousels', function (Blueprint $table) {
             $table->id();
             $table->string('thumbnail', 2048)->nullable();
-            $table->integer('order')->default('0')->unique();
+            $table->integer('order');
             $table->timestamps();
         });
     }

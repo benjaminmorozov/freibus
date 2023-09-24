@@ -1,1 +1,1 @@
-Email overte <a href="{{$url}}">tu</a>
+Email overte otvorením <a href="{{$url}}">tohto odkazu.</a>
