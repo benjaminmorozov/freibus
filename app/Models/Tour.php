@@ -13,7 +13,7 @@ class Tour extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'price', 'places', 'images', 'body', 'date'];
+    protected $fillable = ['title', 'slug', 'priceadults', 'pricestudents', 'pricechildren', 'places', 'images', 'body', 'date'];
 
     protected $casts = ['published_at' => 'date', 'images' => 'array'];
 
@@ -48,7 +48,9 @@ class Tour extends Model
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
-            'price' => $this->price,
+            'priceadults' => $this->priceadults,
+            'pricestudents' => $this->pricestudents,
+            'pricechildren' => $this->pricechildren,
             'places' => $this->places,
             'thumbnail' => 'https://stvorka.cloud'.$this->getThumbnail(),
             'images' => collect($this->images)->map(function($img){
@@ -56,7 +58,6 @@ class Tour extends Model
             }),
             'body' => strip_tags($this->body),
             'date' => Carbon::parse($this->date)->locale('sk-SK')->translatedFormat('d F Y'),
-            'usercodes' => ['0x01', '0x02'],
         ];
     }
 

@@ -2,9 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\APIPostController;
 use App\Http\Controllers\APITourController;
+use App\Http\Controllers\APIOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,8 @@ Route::get('/posts/{id}', [APIPostController::class, 'show']);
 
 Route::get('/tours', [APITourController::class, 'index']);
 Route::get('/tours/{id}', [APITourController::class, 'show']);
+
+Route::post('/orders', [APIOrderController::class, 'store']);
+Route::get('/orders/{id}', [APIOrderController::class, 'show']);
+
+Route::get('/login/{id}', [APIOrderController::class, 'login']);

@@ -32,6 +32,18 @@
         						<label for="psc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">PSČ</label>
         						<input type="number" name="psc" id="psc" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="05801" required="">
         					</div>
+							<div>
+        						<label for="adults" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dospelých</label>
+        						<input type="number" name="adults" id="adults" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required="">
+        					</div>
+							<div>
+        						<label for="students" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Študentov</label>
+        						<input type="number" name="students" id="students" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="2" required="">
+        					</div>
+							<div>
+        						<label for="children" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Detí</label>
+        						<input type="number" name="children" id="children" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0" required="">
+        					</div>
         					<button type="submit" class="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-primary hover:bg-secondary px-6 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prejsť k platbe</button>
         				</form>
             		</div>

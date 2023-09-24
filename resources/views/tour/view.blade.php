@@ -40,7 +40,9 @@
 
             <!-- Options -->
             <div class="mt-4 lg:row-span-3 lg:mt-0">
-                <p class="text-3xl tracking-tight text-gray-900">{{$tour->price}}€</p>
+                <p class="text-3xl tracking-tight text-gray-900">{{$tour->priceadults}}€</p>
+                <p class="text-3xl tracking-tight text-gray-900">{{$tour->pricestudents}}€</p>
+                <p class="text-3xl tracking-tight text-gray-900">{{$tour->pricechildren}}€</p>
 
                 <!-- Reviews -->
                 <div class="mt-6">

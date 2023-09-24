@@ -36,7 +36,18 @@ class TourResource extends Resource
                     Forms\Components\TextInput::make('slug')
                         ->required()
                         ->maxLength(2048),
-                    Forms\Components\TextInput::make('price')
+                    Forms\Components\TextInput::make('priceadults')
+                        ->label('Price (adults)')
+                        ->required()
+                        ->numeric()
+                        ->suffix('€'),
+                    Forms\Components\TextInput::make('pricestudents')
+                        ->label('Price (students)')
+                        ->required()
+                        ->numeric()
+                        ->suffix('€'),
+                    Forms\Components\TextInput::make('pricechildren')
+                        ->label('Price (children)')
                         ->required()
                         ->numeric()
                         ->suffix('€'),
@@ -72,9 +83,6 @@ class TourResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('price')
-                    ->money()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('date')
                     ->date()
                     ->sortable(),

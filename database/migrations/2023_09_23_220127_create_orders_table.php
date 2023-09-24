@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('name', 2048);
             $table->string('email', 2048);
             $table->string('address', 2048);
+            $table->decimal('price', 8, 2);
             $table->foreignIdFor(\App\Models\Tour::class, 'tour_id');
+            $table->integer('login_id');
             $table->timestamps();
             $table->dropColumn('updated_at');
         });

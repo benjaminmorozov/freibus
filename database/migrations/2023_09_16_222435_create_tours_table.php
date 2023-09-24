@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title', 2048);
             $table->string('slug', 2048);
-            $table->decimal('price', 8, 2);
+            $table->decimal('priceadults', 8, 2);
+            $table->decimal('pricestudents', 8, 2);
+            $table->decimal('pricechildren', 8, 2);
             $table->string('places');
             $table->json('images');
             $table->longText('body');

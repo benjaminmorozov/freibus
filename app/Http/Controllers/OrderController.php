@@ -24,10 +24,13 @@ class OrderController extends Controller
             'email' => 'required',
             'address' => 'required',
             'city' => 'required',
-            'psc' => 'required'
+            'psc' => 'required',
+            'adults' => 'required',
+            'students' => 'required',
+            'children' => 'required'
         ]);
         
-        $order = Order::create(['user_id' => Auth::id(), 'name' => $request->name, 'email' => $request->email, 'address' => $request->address.', '.$request->city.' '.$request->psc, 'tour_id' => $tour->id]);
+        $order = Order::create(['user_id' => Auth::id(), 'name' => $request->name, 'email' => $request->email, 'address' => $request->address.', '.$request->city.' '.$request->psc, 'price' => $request->adults*$tour->priceadults+$request->students*$tour->pricestudents+$request->children*$tour->pricechildren, 'tour_id' => $tour->id, 'login_id' =>rand(0, 99999)]);
         
         return redirect()->to('/');
     }
