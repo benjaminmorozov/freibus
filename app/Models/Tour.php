@@ -24,6 +24,10 @@ class Tour extends Model
     public function getFormattedDate() {
         return Carbon::parse($this->date)->locale('sk-SK')->translatedFormat('d F Y');
     }
+    
+    public function shortBody():String {
+        return Str::words(strip_tags($this->body), 30); // 30words
+    }
 
     public function getThumbnail() {
         if(str_starts_with($this->images[0], 'http')) {

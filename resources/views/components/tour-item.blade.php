@@ -8,11 +8,11 @@
                     <span style="background-color: {{$category->colour}}" class="flex rounded-full text-white uppercase px-2 py-1 text-xs font-bold mr-3">{{$category->name}}</span>
                 @endforeach
 
-                <a href="{{route('tourview', $tour)}}" class="text-3xl font-bold hover:text-gray-700 pb-4">{{$tour->title}}</a>
-                <p href="#" class="text-sm pb-3">
+                <a href="{{route('tourview', $tour)}}" class="text-3xl font-bold hover:text-gray-700 pb-3">{{$tour->title}}</a>
+                <p href="#" class="text-sm pb-2">
                     <!-- <a href="#" class="font-semibold hover:text-gray-800"></a>, we'll keep usernames as an internal security measure publikované -->{{$tour->getFormattedDate()}}
                 </p>
-                <a href="{{route('tourview', $tour)}}" class="pb-6">{{$tour->places}}</a>
-                <a href="{{route('tourview', $tour)}}" class="uppercase text-gray-800 hover:text-black">Prečítať <i class="fas fa-arrow-right"></i></a>
+                <a href="{{route('tourview', $tour)}}" class="pb-2 text-sm">{{$tour->shortBody()}}</a>
+                <a href="{{route('tourview', $tour)}}" class="uppercase text-gray-800 hover:text-black">Zobraziť viac <i class="fas fa-arrow-right"></i></a>
             </div>
 </article>

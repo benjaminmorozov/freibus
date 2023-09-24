@@ -26,6 +26,10 @@ class Post extends Model
         return Str::words(strip_tags($this->body), 30); // 30words
     }
 
+    public function shortBodyHome():String {
+        return Str::words(strip_tags($this->body), 5); // 30words
+    }
+
     public function getFormattedDate() {
         return Carbon::parse($this->published_at)->locale('sk-SK')->translatedFormat('d F Y');
     }

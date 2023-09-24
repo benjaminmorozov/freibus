@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $posts = Post::query()
             ->orderBy('published_at', 'desc')
-            ->paginate(2);
+            ->paginate(5);
         $tours = Tour::query()
             ->orderBy('date', 'desc')
             ->paginate(2);
