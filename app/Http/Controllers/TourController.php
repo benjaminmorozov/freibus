@@ -16,7 +16,7 @@ class TourController extends Controller
         $tours = Tour::query()
             ->orderBy('date', 'desc')
             ->paginate(2);
-        return view('tours', compact('tours'));
+        return view('tour.tours', compact('tours'));
     }
 
     public function search(Request $request)
