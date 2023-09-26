@@ -56,7 +56,7 @@ class Tour extends Model
             'images' => collect($this->images)->map(function($img){
                 return 'https://stvorka.cloud/storage/'.$img; //an equolent array turned into a collection, values of which were mapped onto a function that adds the url
             }),
-            'body' => strip_tags($this->body),
+            'body' => $this->body, //strip_tags($this->body) or str_replace('  ', ' ', strip_tags(str_replace( '<', '\n<','$this->body')))
             'date' => Carbon::parse($this->date)->locale('sk-SK')->translatedFormat('d F Y'),
         ];
     }
