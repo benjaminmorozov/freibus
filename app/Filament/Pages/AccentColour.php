@@ -22,6 +22,10 @@ class AccentColour extends Page implements HasForms
 
     protected static ?string $navigationGroup = 'Settings';
 
+    protected static ?string $navigationLabel = 'Colours';
+
+    protected static ?string $title = 'Colours';
+
     protected $accentColour;
 
     public function mount(): void
@@ -36,8 +40,14 @@ class AccentColour extends Page implements HasForms
                 Forms\Components\ColorPicker::make('accentColour')
                     ->default(Setting::where('name','accentColour')->get()->value('value'))
                     ->required(),
+                Forms\Components\ColorPicker::make('modifierColour')
+                    ->default(Setting::where('name','modifierColour')->get()->value('value'))
+                    ->required(),
                 Forms\Components\ColorPicker::make('secondaryColour')
                     ->default(Setting::where('name','secondaryColour')->get()->value('value'))
+                    ->required(),
+                Forms\Components\ColorPicker::make('secondaryModifierColour')
+                    ->default(Setting::where('name','secondaryModifierColour')->get()->value('value'))
                     ->required(),
             ])
             ->statePath('data');
@@ -60,11 +70,21 @@ class AccentColour extends Page implements HasForms
             ]);
             $accentColour->value = $this->form->getState()['accentColour'];
             $accentColour->save();
+            $modifierColour = Setting::firstOrNew([
+                'name' => 'modifierColour'
+            ]);
+            $modifierColour->value = $this->form->getState()['modifierColour'];
+            $modifierColour->save();
             $secondaryColour = Setting::firstOrNew([
                 'name' => 'secondaryColour'
             ]);
             $secondaryColour->value = $this->form->getState()['secondaryColour'];
             $secondaryColour->save();
+            $secondaryModifierColour = Setting::firstOrNew([
+                'name' => 'secondaryModifierColour'
+            ]);
+            $secondaryModifierColour->value = $this->form->getState()['secondaryModifierColour'];
+            $secondaryModifierColour->save();
         } catch (Halt $exception) {
             return;
         }

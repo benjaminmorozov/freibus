@@ -8,14 +8,26 @@ $carousels = Carousel::all()->sortBy('order');
 .bg-primary {
     background-color:{{Setting::where('name','accentColour')->get()->value('value')}};
 }
-.bg-secondary, .hover\:bg-secondary:hover {
+.hover\:bg-primary:hover {
+    background-color:{{Setting::where('name','modifierColour')->get()->value('value')}};
+}
+.bg-secondary {
     background-color:{{Setting::where('name','secondaryColour')->get()->value('value')}};
+}
+.bg-secondaryModifier {
+    background-color:{{Setting::where('name','secondaryModifierColour')->get()->value('value')}};
+}
+.hover\:bg-secondary:hover {
+    background-color:{{Setting::where('name','secondaryModifierColour')->get()->value('value')}};
 }
 .text-primary {
     color:{{Setting::where('name','accentColour')->get()->value('value')}};
 }
-.hover\:text-primary:hover {
+.text-secondary {
     color:{{Setting::where('name','secondaryColour')->get()->value('value')}};
+}
+.hover\:text-primary:hover {
+    color:{{Setting::where('name','modifierColour')->get()->value('value')}};
 }
 .border-primary {
     --tw-border-opacity: 1;

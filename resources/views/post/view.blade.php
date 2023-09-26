@@ -6,7 +6,7 @@
             <article class="flex flex-col shadow">
                 <!-- Article Image -->
                 <a>
-                    <img src="{{$post->getThumbnail()}}" style="width:100%; max-height:450px; object-fit: cover; overflow: hidden;">
+                    <img src="{{$post->getThumbnail()}}" class="overflow-hidden object-cover w-full max-h-96">
                 </a>
                 <div class="bg-white flex flex-col justify-start p-6 items-start">
                     <h1 class="text-3xl font-bold pb-3">{{$post->title}}</h1>

@@ -15,7 +15,7 @@ class TourController extends Controller
     {
         $tours = Tour::query()
             ->orderBy('date', 'desc')
-            ->paginate(2);
+            ->paginate(3);
         return view('tour.tours', compact('tours'));
     }
 

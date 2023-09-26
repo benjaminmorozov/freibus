@@ -17,7 +17,7 @@ class HomeController extends Controller
             ->paginate(5);
         $tours = Tour::query()
             ->orderBy('date', 'desc')
-            ->paginate(2);
+            ->paginate(3);
         return view('home', compact('posts', 'tours'));
     }
 }
