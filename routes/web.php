@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Models\Carousel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
@@ -28,14 +27,10 @@ Route::get('logout',  function() {
     return redirect('/');
 });
 // Route::view('/about', 'about'); <- no carousel data
-Route::get('/about', function () { // <- bypass need for postcontroller, thus we can just use
-    $carousels = Carousel::all()->sortBy('order');
-    return view('about', compact('carousels'));
-});
-Route::get('/termsconditions', function () { // <- bypass need for postcontroller, thus we can just use
-    $carousels = Carousel::all()->sortBy('order');
-    return view('termsconditions', compact('carousels'));
-});
+Route::view('/about', 'basePages.about'); // <- bypass need for postcontroller, thus we can just use
+Route::view('/termsconditions', 'basePages.termsconditions'); // <- bypass need for postcontroller, thus we can just use
+Route::view('/privacypolicy', 'basePages.privacypolicy');
+
 Route::view('/zbernydvor', 'zbernydvor');
 Route::get('/tours', [TourController::class, 'index'])->name('tours');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('view');
