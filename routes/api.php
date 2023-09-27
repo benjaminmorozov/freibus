@@ -33,3 +33,5 @@ Route::post('/orders', [APIOrderController::class, 'store']);
 Route::get('/orders/{id}', [APIOrderController::class, 'show']);
 
 Route::get('/login/{id}', [APIOrderController::class, 'login']);
+
+Route::get('/maps/{id}', [APITourController::class, 'showMap']);

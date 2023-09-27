@@ -2,7 +2,7 @@
     <ul class="-mx-4">
         <li class="flex items-center">
             <a href="{{route('view', $post)}}">
-                <img class="w-20 h-10 object-cover ml-4 mr-2" src="{{$post->getThumbnail()}}" alt="avatar">
+                <img class="w-20 h-10 object-cover ml-4 mr-2 rounded-lg" src="{{$post->getThumbnail()}}" alt="avatar">
             </a>
             <p>
                 <a href="{{route('view', $post)}}" class="text-gray-700 font-bold mx-1 hover:underline" href="#">{{$post->title}}</a>

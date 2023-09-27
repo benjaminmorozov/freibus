@@ -50,7 +50,7 @@ class APIOrderController extends Controller
             $user_id = NULL;
         }
         $tour = Tour::query()->where('id', '=', $request->tour_id)->first();
-        $order = Order::create(['user_id' => $user_id, 'name' => $request->name, 'email' => $request->email, 'address' => $request->address.', '.$request->city.' '.$request->psc, 'price' => $request->adults*$tour->priceadults+$request->students*$tour->pricestudents+$request->children*$tour->pricechildren, 'tour_id' => $request->tour_id, 'login_id' =>rand(0, 99999)]);
+        $order = Order::create(['user_id' => $user_id, 'name' => $request->name, 'email' => $request->email, 'address' => $request->address.', '.$request->city.' '.$request->psc, 'price' => $request->adults*$tour->priceadults+$request->students*$tour->pricestudents+$request->children*$tour->pricechildren, 'tour_id' => $request->tour_id, 'login_id' =>rand(100000, 999999)]);
         return [
             'result' => 200,
             'id' => $order->id,

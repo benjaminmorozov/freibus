@@ -68,38 +68,38 @@ $carousels = Carousel::all()->sortBy('order');
 
     <!-- Top Bar Nav -->
 	<div class="bg-white shadow">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between py-4">
-        <div>
-            <a href="/">
-                <img src="{{ asset('/images/logo.svg') }}" class="h-16 mr-3" data-cycle-desc="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o." alt="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o.">
-                <!-- {{config('app.name');}} -->
-            </a>
-        </div>
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <div>
+                    <a href="/">
+                        <img src="{{ asset('/images/logo.svg') }}" class="h-16 mr-3" data-cycle-desc="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o." alt="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o.">
+                        <!-- {{config('app.name');}} -->
+                    </a>
+                </div>
 
-        <div class="hidden sm:flex sm:items-center">
-          <a href="/tours" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Cestovné destinácie</a>
-          <a href="/posts" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Aktuality a akcie</a>
-          <a href="/zbernydvor" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Zberný dvor</a>
-          <a href="/reviews" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Hodnotenia a recenzie</a>
-          <a href="/contact" class="text-gray-800 text-sm font-semibold hover:text-primary">Kontakt</a>
-        </div>
+                <div class="hidden sm:flex sm:items-center">
+                    <a href="/tours" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Cestovné destinácie</a>
+                    <a href="/posts" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Aktuality a akcie</a>
+                    <a href="/zbernydvor" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Zberný dvor</a>
+                    <a href="/reviews" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Hodnotenia a recenzie</a>
+                    <a href="/contact" class="text-gray-800 text-sm font-semibold hover:text-primary">Kontakt</a>
+                </div>
 
-        <div class="hidden sm:flex sm:items-center">
-        @if(Auth::check())
-            @if(Auth::user()->hasRole('admin'))
-                <a href="/admin" class="text-gray-800 text-sm font-semibold hover:text-primary mr-4">Dashboard</a>
-            @endif
-                <a href="/profile" class="text-gray-800 text-sm font-semibold hover:text-primary mr-4">Profil</a>
-                <a href="/logout" class="border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary hover:border-primary">Odhlásiť sa</a>
-            @else
-                <a href="/login" class="border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary mr-4 hover:border-primary">Prihlásiť sa</a>
-                <a href="/register" class="text-gray-800 text-sm font-semibold hover:text-primary">Zaregistrovať sa</a>
-        @endif
+                <div class="hidden sm:flex sm:items-center">
+                    @if(Auth::check())
+                        @if(Auth::user()->hasRole('admin'))
+                            <a href="/admin" class="text-gray-800 text-sm font-semibold hover:text-primary mr-4">Dashboard</a>
+                        @endif
+                        <a href="/profile" class="text-gray-800 text-sm font-semibold hover:text-primary mr-4">Profil</a>
+                        <a href="/logout" class="border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary hover:border-primary">Odhlásiť sa</a>
+                    @else
+                        <a href="/login" class="border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary mr-4 hover:border-primary">Prihlásiť sa</a>
+                        <a href="/register" class="text-gray-800 text-sm font-semibold hover:text-primary">Zaregistrovať sa</a>
+                    @endif
+                </div>
+            </div> 
         </div>
-      </div> 
     </div>
-  </div>
     
 
     {{ $slot }}

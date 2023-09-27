@@ -1,44 +1,36 @@
 <x-app-layout>
-<div class="container mx-auto flex flex-wrap py-4">
-        <!-- Post Section -->
-        <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+<div class="bg-white">
+    <div class="pt-6">
+        <nav aria-label="Breadcrumb" class="mb-5">
+            <ol role="list" class="mx-auto flex items-center sm:px-6 lg:max-w-7xl lg:px-8">
+                <div class="flex items-center gap-x-4 text-xs">
+		            <time datetime="2020-03-16" class="text-gray-500">{{$post->getFormattedDate()}}</time>
+	            </div>
+            </ol>
+        </nav>
+        
+        <div class="mx-auto sm:px-6 max-w-7xl gap-4 lg:gap-x-8 lg:px-8 pb-8">
+            <div class="overflow-hidden rounded-lg">
+			    <img src="{{$post->getThumbnail()}}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-96 w-full overflow-hidden">
+	        </div>
+        </div>
 
-            <article class="flex flex-col shadow">
-                <!-- Article Image -->
-                <a>
-                    <img src="{{$post->getThumbnail()}}" class="overflow-hidden object-cover w-full max-h-96">
-                </a>
-                <div class="bg-white flex flex-col justify-start p-6 items-start">
-                    <h1 class="text-3xl font-bold pb-3">{{$post->title}}</h1>
-                    <p class="text-sm pb-2">
-                        <!-- <a href="#" class="font-semibold hover:text-gray-800">{{$post->user->name}}</a>, we'll keep usernames as an internal security measure publikované -->{{$post->getFormattedDate()}}
-                    </p>
-                    <div>{!! $post->body !!}</div>
-                </div>
-            </article>
-
-            <div class="w-full flex pt-6">
-                <div class="w-1/2">
-                    @if($prev)
-                    <a href="{{route('view', $prev)}}" class="block w-full bg-white shadow hover:shadow-md text-left p-6">
-                        <p class="text-lg text-primary font-bold flex items-center"><i class="fas fa-arrow-left pr-1"></i> Predošlý</p>
-                        <p class="pt-2">{{\Illuminate\Support\Str::words($prev->title, 5)}}</p>
-                    </a>
-                    @endif
-                </div>
-                <div class="w-1/2">
-                    @if($next)
-                    <a href="{{route('view', $next)}}" class="block w-full bg-white shadow hover:shadow-md text-right p-6">
-                        <p class="text-lg text-primary font-bold flex items-center justify-end">Ďalší <i class="fas fa-arrow-right pl-1"></i></p>
-                        <p class="pt-2">{{\Illuminate\Support\Str::words($next->title, 5)}}</p>
-                    </a>
-                    @endif
-                </div>
+        <!-- Product info -->
+        <div class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:pb-6">
+            <div class="lg:col-span-2 lg:pr-8">
+                <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{$post->title}}</h1>
             </div>
 
-        </section>
-
-    <x-sidebar />
-
+            <div class="py-10 lg:col-span-2 lg:col-start-1 lg:pt-6">
+                <!-- Description and details -->
+                <div>
+                    <div class="space-y-6">
+                        <p class="text-base text-gray-900">{!! $post->body !!}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 </x-app-layout>

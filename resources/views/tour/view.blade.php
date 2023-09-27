@@ -4,14 +4,14 @@
         <nav aria-label="Breadcrumb">
             <ol role="list" class="mx-auto flex items-center sm:px-6 lg:max-w-7xl lg:px-8">
                 @foreach($tour->categories as $category)
-                    <span style="background-color: {{$category->colour}}" class="flex rounded-full text-white uppercase px-2 py-1 text-xs font-bold">{{$category->name}}</span>
+                    <a class="text-sm relative z-10 rounded-full bg-gray-50 px-2 py-1 font-medium text-gray-600 hover:bg-gray-100">{{$category->name}}</a>
                     <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300 mx-2">
                         <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
                     </svg>
                 @endforeach
 
                 <li class="text-sm">
-                    <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">{{$tour->title}}</a>
+                    <a aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">{{$tour->title}}</a>
                 </li>
             </ol>
         </nav>

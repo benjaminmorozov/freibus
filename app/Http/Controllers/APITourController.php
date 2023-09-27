@@ -47,6 +47,20 @@ class APITourController extends Controller
         }
     }
 
+    public function showMap($id)
+    {
+        $tour = Tour::find($id); 
+        if(!empty($tour))
+        {
+            $places =  explode(', ', $tour->places);
+            return view('tour.map', compact('places'));
+        } else {
+            return response()->json([
+                "message" => "Tour not found"
+            ], 404);
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

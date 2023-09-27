@@ -39,7 +39,7 @@ class OrderResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->suffix('€'),
                 Forms\Components\TextInput::make('tour_id')
                     ->required()
                     ->numeric(),
@@ -63,7 +63,7 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('address')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->money()
+                    ->money('eur')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('tour_id')
                     ->numeric()

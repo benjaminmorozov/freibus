@@ -1,14 +1,20 @@
-<article class="flex flex-col shadow mb-4">
-    <!-- Article Image -->
-    <a href="{{route('view', $post)}}" class="hover:opacity-75">
-        <img src="{{$post->getThumbnail()}}" style="width:100%; max-height:200px; object-fit: cover; overflow: hidden;">
-    </a>
-    <div class="bg-white flex flex-col justify-start p-6 items-start">
-        <a href="{{route('view', $post)}}" class="text-3xl font-bold hover:text-gray-700 pb-3">{{$post->title}}</a>
-        <p href="#" class="text-sm pb-2">
-            <!-- <a href="#" class="font-semibold hover:text-gray-800">{{$post->user->name}}</a>, we'll keep usernames as an internal security measure publikované -->{{$post->getFormattedDate()}}
-        </p>
-        <a href="{{route('view', $post)}}" class="pb-2">{{$post->shortBody()}}</a>
-        <a href="{{route('view', $post)}}" class="uppercase text-gray-800 hover:text-black">Prečítať <i class="fas fa-arrow-right"></i></a>
-    </div>
+<article class="flex flex-col justify-between mb-4">
+	<div class="overflow-hidden rounded-lg mb-5">
+		<a href="{{route('view', $post)}}">
+			<img src="{{$post->getThumbnail()}}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-48 w-full overflow-hidden">
+		</a>
+	</div>
+	<div class="flex items-center gap-x-4 text-xs">
+		<time datetime="2020-03-16" class="text-gray-500">{{$post->getFormattedDate()}}</time>
+	</div>
+	<div class="group relative">
+		<h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+			<a href="{{route('view', $post)}}">
+				<span class="absolute inset-0"></span>
+				{{$post->title}}
+			</a>
+		</h3>
+		<p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{$post->shortBody()}}</p>
+	</div>
+	<a href="{{route('view', $post)}}" class="mt-5 block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Zobraziť viac</a>
 </article>

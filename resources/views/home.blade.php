@@ -32,6 +32,10 @@
 
                 <a href="/posts" class="flex w-full items-center justify-center border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary mr-4 hover:border-primary">Viac</a>
             </div>
+            
+            <div class="mt-5 w-full">
+                <x-sidebar />
+            </div>
         </section>
     </div>
 
