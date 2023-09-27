@@ -18,9 +18,7 @@
                 @endforeach
                 
             </div>
-            <a href="/tours" class="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-secondary hover:bg-secondary px-6 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                Viac
-            </a>
+            <a href="/tours" class="mt-3 flex w-full items-center justify-center border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary mr-4 hover:border-primary">Viac</a>
         </section>
         
         <!-- Posts section -->
@@ -32,9 +30,7 @@
                     <x-post-item-mini :post="$post"></x-post-item-mini>
                 @endforeach
 
-                <a href="/posts" class="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-primary hover:bg-primary px-6 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                Viac
-                </a>
+                <a href="/posts" class="flex w-full items-center justify-center border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary mr-4 hover:border-primary">Viac</a>
             </div>
         </section>
     </div>

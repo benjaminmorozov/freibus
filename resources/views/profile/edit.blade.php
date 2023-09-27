@@ -5,6 +5,15 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
         		    Informácie o profile
         		</h1>
+				@foreach ($user->order as $order)
+				<p>
+					{{$order->id}}
+					{{$order->name}}
+					{{$order->address}}
+					{{$order->price}}
+					{{App\Models\Tour::query()->orderBy('tours.date', 'desc')->join('category_tour', 'tours.id', '=', 'category_tour.tour_id')->join('categories', 'categories.id', '=', 'category_tour.category_id')->where('tours.id', '=', $order->tour_id)->first()->title}}
+				</p>
+				@endforeach
         		<form id="send-verification" method="post" action="{{ route('verification.send') }}">
         		    @csrf
         		</form>

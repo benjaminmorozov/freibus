@@ -23,6 +23,12 @@ $carousels = Carousel::all()->sortBy('order');
 .text-primary {
     color:{{Setting::where('name','accentColour')->get()->value('value')}};
 }
+.hover\:text-primary:hover {
+    color:{{Setting::where('name','accentColour')->get()->value('value')}};
+}
+.hover\:border-primary:hover {
+    border-color: {{Setting::where('name','accentColour')->get()->value('value')}};
+}
 .text-secondary {
     color:{{Setting::where('name','secondaryColour')->get()->value('value')}};
 }
@@ -61,81 +67,40 @@ $carousels = Carousel::all()->sortBy('order');
 <body class="bg-white font-family-karla">
 
     <!-- Top Bar Nav -->
-    <nav class="w-full py-4 bg-primary shadow">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
-
-            <nav>
-                <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                    @if(Auth::check())
-                    @if(Auth::user()->hasRole('admin'))
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/admin">Dashboard</a></li>
-                    @endif
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/profile">Profil</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/logout">Odhlásiť sa</a></li>
-                    @else
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/login">Prihlásiť sa</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/register">Zaregistrovať sa</a></li>
-                    @endif
-                </ul>
-            </nav>
-
-            <div class="flex items-center text-lg no-underline text-white pr-6">
-                @if ($facebook = Social::where('name','facebook')->get()->value('url'))
-                <a class="" href="{{$facebook}}">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                @endif
-                @if ($instagram = Social::where('name','instagram')->get()->value('url'))
-                <a class="pl-6" href="{{$instagram}}">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                @endif
-                @if ($twitter = Social::where('name','twitter')->get()->value('url'))
-                <a class="pl-6" href="{{$twitter}}">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                @endif
-                @if ($linkedin = Social::where('name','linkedin')->get()->value('url'))
-                <a class="pl-6" href="{{$linkedin}}">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                @endif
-            </div>
-        </div>
-
-    </nav>
-
-    <!-- Text Header -->
-    <header class="w-full container mx-auto">
-        <div class="flex flex-col items-center py-8">
-            <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="/">
-                <img src="{{ asset('/images/logo.svg') }}" style="text-align:left;width:100%;max-width:260px;max-height:260px;" data-cycle-desc="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o." alt="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o.">
+	<div class="bg-white shadow">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <div>
+            <a href="/">
+                <img src="{{ asset('/images/logo.svg') }}" class="h-16 mr-3" data-cycle-desc="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o." alt="Cestovná kancelária Freibus SLOVAKIA Tour, s r.o.">
                 <!-- {{config('app.name');}} -->
             </a>
         </div>
-    </header>
 
-    <!-- Topic Nav -->
-    <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }">
-        <div class="block sm:hidden">
-            <a
-                href="#"
-                class="md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
-                @click="open = !open"
-            >
-                Menu <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
-            </a>
+        <div class="hidden sm:flex sm:items-center">
+          <a href="/tours" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Cestovné destinácie</a>
+          <a href="/posts" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Aktuality a akcie</a>
+          <a href="/zbernydvor" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Zberný dvor</a>
+          <a href="/reviews" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Hodnotenia a recenzie</a>
+          <a href="/contact" class="text-gray-800 text-sm font-semibold hover:text-primary">Kontakt</a>
         </div>
-        <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-            <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                <a href="/tours" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Cestovné destinácie</a>
-                <a href="/posts" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Aktuality a akcie</a>
-                <a href="/zbernydvor" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Zberný dvor</a>
-                <a href="/reviews" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Hodnotenia a recenzie</a>
-                <a href="/contact" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Kontakt</a>
-            </div>
+
+        <div class="hidden sm:flex sm:items-center">
+        @if(Auth::check())
+            @if(Auth::user()->hasRole('admin'))
+                <a href="/admin" class="text-gray-800 text-sm font-semibold hover:text-primary mr-4">Dashboard</a>
+            @endif
+                <a href="/profile" class="text-gray-800 text-sm font-semibold hover:text-primary mr-4">Profil</a>
+                <a href="/logout" class="border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary hover:border-primary">Odhlásiť sa</a>
+            @else
+                <a href="/login" class="border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary mr-4 hover:border-primary">Prihlásiť sa</a>
+                <a href="/register" class="text-gray-800 text-sm font-semibold hover:text-primary">Zaregistrovať sa</a>
+        @endif
         </div>
-    </nav>
+      </div> 
+    </div>
+  </div>
+    
 
     {{ $slot }}
 
