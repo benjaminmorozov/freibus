@@ -40,9 +40,12 @@
 
             <!-- Options -->
             <div class="mt-4 lg:row-span-3 lg:mt-0">
-                <p class="text-3xl tracking-tight text-gray-900">{{$tour->priceadults}}€</p>
-                <p class="text-3xl tracking-tight text-gray-900">{{$tour->pricestudents}}€</p>
-                <p class="text-3xl tracking-tight text-gray-900">{{$tour->pricechildren}}€</p>
+                <span class="text-sm text-gray-600">Dospelí</span>
+                <p class="text-3xl tracking-tight text-gray-900">{{$tour->priceadults}}€ <span class="text-sm text-gray-600">na osobu</span></p>
+                <span class="text-sm text-gray-600">Študenti</span>
+                <p class="text-3xl tracking-tight text-gray-900">{{$tour->pricestudents}}€ <span class="text-sm text-gray-600">na osobu</span></p>
+                <span class="text-sm text-gray-600">Deti</span>
+                <p class="text-3xl tracking-tight text-gray-900">{{$tour->pricechildren}}€ <span class="text-sm text-gray-600">na osobu</span></p>
 
                 <!-- Reviews -->
                 <div class="mt-6">
@@ -79,7 +82,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <button type="submit" class="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-primary hover:bg-secondary px-8 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Zarezervovať</button>
+                    <button type="submit" class="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-primary hover:bg-primary px-8 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Zarezervovať</button>
                 </form>
             </div>
 
