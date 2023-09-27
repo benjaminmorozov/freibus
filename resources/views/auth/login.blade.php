@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container justify-center mx-auto flex flex-wrap py-4">
         <x-auth-session-status class="mb-4" :status="session('status')" />
-        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full bg-white md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     Prihlásiť sa
@@ -31,7 +31,7 @@
                             <a href="{{ route('password.request') }}" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Zabudnuté heslo?</a>
                         @endif
                     </div>
-                    <button type="submit" class="w-full bg-primary text-white font-bold text-sm uppercase rounded hover:bg-secondary flex items-center justify-center px-2 py-3 mt-4">Prihlásiť sa</button>
+                    <button type="submit" class="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-primary hover:bg-primary px-8 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prihlásiť sa</button>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                         Ešte nemáte účet? <a href="{{ route('register') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Zaregistrovať sa</a>
                     </p>
