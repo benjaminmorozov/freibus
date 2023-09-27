@@ -29,6 +29,9 @@ $carousels = Carousel::all()->sortBy('order');
 .hover\:border-primary:hover {
     border-color: {{Setting::where('name','accentColour')->get()->value('value')}};
 }
+.hover\:border-modifier:hover {
+    border-color: {{Setting::where('name','modifierColour')->get()->value('value')}};
+}
 .text-secondary {
     color:{{Setting::where('name','secondaryColour')->get()->value('value')}};
 }
@@ -67,7 +70,7 @@ $carousels = Carousel::all()->sortBy('order');
 <body class="bg-white font-family-karla">
 
     <!-- Top Bar Nav -->
-	<div class="bg-white shadow">
+	<div class="bg-white">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between py-4">
                 <div>
@@ -85,16 +88,24 @@ $carousels = Carousel::all()->sortBy('order');
                     <a href="/contact" class="text-gray-800 text-sm font-semibold hover:text-primary">Kontakt</a>
                 </div>
 
-                <div class="hidden sm:flex sm:items-center">
+                <div class="hidden sm:flex sm:items-center bg-primary
+                @if(Auth::check())
+                pl-5
+                pr-2
+                @else
+                pl-2
+                pr-5
+                @endif
+                py-2 rounded-lg">
                     @if(Auth::check())
                         @if(Auth::user()->hasRole('admin'))
-                            <a href="/admin" class="text-gray-800 text-sm font-semibold hover:text-primary mr-4">Dashboard</a>
+                            <a href="/admin" class="text-white text-sm font-semibold hover:text-primary mr-4">Dashboard</a>
                         @endif
-                        <a href="/profile" class="text-gray-800 text-sm font-semibold hover:text-primary mr-4">Profil</a>
-                        <a href="/logout" class="border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary hover:border-primary">Odhlásiť sa</a>
+                        <a href="/profile" class="text-white text-sm font-semibold hover:text-primary mr-4">Profil</a>
+                        <a href="/logout" class="border px-4 py-2 rounded-lg text-white text-sm font-semibold hover:border-modifier hover:bg-primary">Odhlásiť sa</a>
                     @else
-                        <a href="/login" class="border px-4 py-2 rounded-lg text-gray-800 text-sm font-semibold hover:text-primary mr-4 hover:border-primary">Prihlásiť sa</a>
-                        <a href="/register" class="text-gray-800 text-sm font-semibold hover:text-primary">Zaregistrovať sa</a>
+                        <a href="/login" class="border px-4 py-2 rounded-lg text-white text-sm font-semibold mr-4 hover:border-modifier hover:bg-primary">Prihlásiť sa</a>
+                        <a href="/register" class="text-white text-sm font-semibold hover:text-primary">Zaregistrovať sa</a>
                     @endif
                 </div>
             </div> 
