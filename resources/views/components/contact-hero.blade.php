@@ -18,7 +18,12 @@
             </form>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="{{ asset('/images/bus.png') }}" alt="mockup">
+            <img src="{{ asset('/images/bus.png') }}" style="user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;" alt="mockup">
         </div>
     </div>
 </section>

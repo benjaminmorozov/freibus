@@ -1,24 +1,35 @@
 <x-app-layout>
-    <div class="container mx-auto flex flex-wrap py-4">
-        <!-- Post Section -->
-        <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+    <div class="bg-white">
+        <div class="pt-6">
+            <nav aria-label="Breadcrumb" class="mb-5">
+                <ol role="list" class="mx-auto flex items-center sm:px-6 lg:max-w-7xl lg:px-8">
+                    <div class="flex items-center gap-x-4 text-xs">
+    		            <time datetime="2020-03-16" class="text-gray-500">date</time>
+    	            </div>
+                </ol>
+            </nav>
 
-            <article class="flex flex-col shadow">
-                <!-- Article Image -->
-                <a href="#" class="hover:opacity-75">
-                    <img src="" style="width:100%; max-height:450px; object-fit: cover; overflow: hidden;">
-                </a>
-                <div class="bg-white flex flex-col justify-start p-6 items-start">
-                    <span class="flex rounded-full text-white bg-secondary uppercase px-2 py-1 text-xs font-bold mr-3"></span>
-                    <h1 class="text-3xl font-bold hover:text-gray-700 pb-4"></h1>
-                    <p href="#" class="text-sm pb-8">
-                        <a href="#" class="font-semibold hover:text-gray-800"></a>, publikované
-                    </p>
-                    <div></div>
+            <div class="mx-auto sm:px-6 max-w-7xl gap-4 lg:gap-x-8 lg:px-8 pb-8">
+                <div class="overflow-hidden rounded-lg">
+    			    <img src="{{ asset('/images/logo.svg') }}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-96 w-full overflow-hidden">
+    	        </div>
+            </div>
+
+            <!-- Product info -->
+            <div class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:pb-6">
+                <div class="lg:col-span-2 lg:pr-8">
+                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">title</h1>
                 </div>
-            </article>
 
-        </section>
-
+                <div class="py-10 lg:col-span-2 lg:col-start-1 lg:pt-6">
+                    <!-- Description and details -->
+                    <div>
+                        <div class="space-y-6">
+                            <p class="text-base text-gray-900">body</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </x-app-layout>

@@ -129,7 +129,29 @@ $carousels = Carousel::all()->sortBy('order');
                 <a href="/termsconditions" class="uppercase px-3">Všeobecné zmluvné podmienky</a>
                 <a href="/contact" class="uppercase px-3">Kontakt</a>
             </div>
-            <div class="uppercase pb-6">with <3 stvorka@ssosta 2023</div>
+            <div class="flex items-center text-lg no-underline text-black">
+                @if ($facebook = Social::where('name','facebook')->get()->value('url'))
+                <a class="" href="{{$facebook}}">
+                    Nájdete nás aj na <i class="fab fa-facebook"></i>
+                </a>
+                @endif
+                @if ($instagram = Social::where('name','instagram')->get()->value('url'))
+                <a class="pl-6" href="{{$instagram}}">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                @endif
+                @if ($twitter = Social::where('name','twitter')->get()->value('url'))
+                <a class="pl-6" href="{{$twitter}}">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                @endif
+                @if ($linkedin = Social::where('name','linkedin')->get()->value('url'))
+                <a class="pl-6" href="{{$linkedin}}">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                @endif
+            </div>
+            <div class="uppercase py-6">with <3 stvorka@ssosta 2023</div>
         </div>
     </footer>
 
