@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BasePage extends Model
+class Page extends Model
 {
     use HasFactory;
-    protected $fillable=['name','value'];
+
+    protected $fillable = ['title', 'slug', 'thumbnail', 'body'];
 
     public $timestamps = false;
 }

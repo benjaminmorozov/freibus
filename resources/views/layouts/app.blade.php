@@ -83,7 +83,7 @@ $carousels = Carousel::all()->sortBy('order');
                 <div class="hidden sm:flex sm:items-center">
                     <a href="/tours" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Cestovné destinácie</a>
                     <a href="/posts" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Aktuality a akcie</a>
-                    <a href="/zbernydvor" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Zberný dvor</a>
+                    <a href="/page/zbernydvor" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Zberný dvor</a>
                     <a href="/reviews" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Hodnotenia a recenzie</a>
                     <a href="/contact" class="text-gray-800 text-sm font-semibold hover:text-primary">Kontakt</a>
                 </div>
@@ -124,9 +124,9 @@ $carousels = Carousel::all()->sortBy('order');
     <footer class="w-full border-t bg-white">
         <div class="w-full container mx-auto flex flex-col items-center">
             <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-                <a href="/about" class="uppercase px-3">O nás</a>
-                <a href="/privacypolicy" class="uppercase px-3">Ochrana osobných údajov</a>
-                <a href="/termsconditions" class="uppercase px-3">Všeobecné zmluvné podmienky</a>
+                <a href="/page/about" class="uppercase px-3">O nás</a>
+                <a href="/page/privacypolicy" class="uppercase px-3">Ochrana osobných údajov</a>
+                <a href="/page/termsconditions" class="uppercase px-3">Všeobecné zmluvné podmienky</a>
                 <a href="/contact" class="uppercase px-3">Kontakt</a>
             </div>
             <div class="flex items-center text-lg no-underline text-black">

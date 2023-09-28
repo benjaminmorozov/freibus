@@ -75,7 +75,7 @@
                     @csrf
                         <!-- Places -->
                         <h3 class="text-sm font-medium text-gray-900">Miesta</h3>
-                        <div class="mt-4">
+                        <div class="my-4">
                             <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
                                 @foreach(explode(',', $tour->places) as $place)
                                     <li class="text-gray-400"><span class="text-gray-600">{{$place}}</span></li>
@@ -84,15 +84,17 @@
                         </div>
                         <button type="submit" class="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-primary hover:bg-primary px-8 py-3 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Zarezervovať</button>
                     </form>
+                    <span class="text-xs text-gray-600">Pokračovaním súhlasíte so <a class="text-primary hover:text-primary" href="/page/termsconditions">Všeobecnými zmlúvnymi podmienkami</a></span>
                 </div>
     
-                <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+                <div class="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pr-8">
                     <!-- Description and details -->
-                    <div>
-                        <div class="space-y-6">
-                            <p class="text-base text-gray-900">{!! $tour->body !!}</p>
-                        </div>
+                    <div class="space-y-6">
+                        <p class="text-base text-gray-900">{!! $tour->body !!}</p>
                     </div>
+                </div>
+                <div class="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pr-8">
+                    <x-tourmap :tour='$tour' />
                 </div>
             </div>
         </div>

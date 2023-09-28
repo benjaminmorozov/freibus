@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,13 +28,14 @@ Route::get('logout',  function() {
     return redirect('/');
 });
 // Route::view('/about', 'about'); <- no carousel data
-Route::view('/about', 'basePages.about'); // <- bypass need for postcontroller, thus we can just use
-Route::view('/termsconditions', 'basePages.termsconditions'); // <- bypass need for postcontroller, thus we can just use
-Route::view('/privacypolicy', 'basePages.privacypolicy');
+// Route::view('/about', 'basePages.about'); // <- bypass need for postcontroller, thus we can just use
+// Route::view('/termsconditions', 'basePages.termsconditions'); // <- bypass need for postcontroller, thus we can just use
+// Route::view('/privacypolicy', 'basePages.privacypolicy');
 
 Route::view('/zbernydvor', 'zbernydvor');
 Route::get('/tours', [TourController::class, 'index'])->name('tours');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('view');
+Route::get('/page/{page:slug}', [PageController::class, 'show'])->name('pageview');
 Route::get('/tours/{tour:slug}', [TourController::class, 'show'])->name('tourview');
 Route::get('search', [TourController::class, 'search'])->name('search');
 
