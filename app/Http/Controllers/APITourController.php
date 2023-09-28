@@ -53,7 +53,7 @@ class APITourController extends Controller
         if(!empty($tour))
         {
             $places =  explode(', ', $tour->places);
-            return view('tour.map', compact('places'));
+            return response()->json([view('tour.map', compact('places'))->render()]);
         } else {
             return response()->json([
                 "message" => "Tour not found"
