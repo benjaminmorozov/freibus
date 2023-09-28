@@ -21,7 +21,7 @@
                     <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{$post->title}}</h1>
                 </div>
 
-                <div class="py-10 lg:col-span-2 lg:col-start-1 lg:pt-6">
+                <div class="lg:col-span-2 lg:col-start-1">
                     <!-- Description and details -->
                     <div>
                         <div class="space-y-6">
