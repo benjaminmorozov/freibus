@@ -1,4 +1,4 @@
-<div id="map" class="w-full h-56 rounded-lg shadow"></div>
+<div id="map" class="w-full h-56 rounded-lg"></div>
 
 <script>
         function initMap() {
