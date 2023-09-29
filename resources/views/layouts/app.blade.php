@@ -5,6 +5,9 @@ use App\Models\Setting;
 $carousels = Carousel::all()->sortBy('order');
 ?>
 <style>
+h2, .hero-title {
+    font-family: 'Manrope', sans-serif;
+}
 .bg-primary {
     background-color:{{Setting::where('name','accentColour')->get()->value('value')}};
 }
@@ -53,6 +56,9 @@ $carousels = Carousel::all()->sortBy('order');
     <meta name="description" content="">
 
     <!-- Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
@@ -155,7 +161,6 @@ $carousels = Carousel::all()->sortBy('order');
         </div>
     </footer>
 
-    <!-- Flowbite -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 
 </body>

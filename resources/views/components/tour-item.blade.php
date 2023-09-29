@@ -24,5 +24,5 @@
 			@endforeach
 		</p>
 	</div>
-	<a href="{{route('tourview', $tour)}}" class="mt-5 block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Zobraziť viac</a>
+	<a href="{{route('tourview', $tour)}}" class="mt-5 block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Zobraziť viac</a>
 </article>

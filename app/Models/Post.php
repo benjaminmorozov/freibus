@@ -31,7 +31,7 @@ class Post extends Model
     }
 
     public function getFormattedDate() {
-        return Carbon::parse($this->published_at)->locale('sk-SK')->translatedFormat('d F Y');
+        return Carbon::parse($this->published_at)->locale('sk-SK')->translatedFormat('d. F Y');
     }
 
     public function getThumbnail() {
@@ -55,10 +55,10 @@ class Post extends Model
             'slug' => $this->slug,
             'thumbnail' => 'https://stvorka.cloud'.$this->getThumbnail(),
             'body' => strip_tags($this->body),
-            'published_at' => Carbon::parse($this->published_at)->locale('sk-SK')->translatedFormat('d F Y'),
+            'published_at' => Carbon::parse($this->published_at)->locale('sk-SK')->translatedFormat('d. F Y'),
             'user_id' => $this->user_id,
-            'created_at' => Carbon::parse($this->created_at)->locale('sk-SK')->translatedFormat('d F Y'),
-            'updated_at' => Carbon::parse($this->updated_at)->locale('sk-SK')->translatedFormat('d F Y'),
+            'created_at' => Carbon::parse($this->created_at)->locale('sk-SK')->translatedFormat('d. F Y'),
+            'updated_at' => Carbon::parse($this->updated_at)->locale('sk-SK')->translatedFormat('d. F Y'),
         ];
     }
 }

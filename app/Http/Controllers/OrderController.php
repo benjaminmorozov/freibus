@@ -32,6 +32,6 @@ class OrderController extends Controller
         
         $order = Order::create(['user_id' => Auth::id(), 'name' => $request->name, 'email' => $request->email, 'address' => $request->address.', '.$request->city.' '.$request->psc, 'price' => $request->adults*$tour->priceadults+$request->students*$tour->pricestudents+$request->children*$tour->pricechildren, 'tour_id' => $tour->id, 'login_id' =>rand(100000, 999999)]);
         
-        return redirect()->to('/');
+        return view('tour.gateway', compact('order'));
     }
 }

@@ -9,7 +9,7 @@
                 <p class="text-sm mt-2 text-gray-800">Váš email nie je overený.</p>
                 <form method="POST" action="{{ route('verification.send') }}" class="space-y-4 md:space-y-6">
                 @csrf
-                    <button type="submit" class="w-full bg-primary text-white font-bold text-sm uppercase rounded hover:bg-secondary flex items-center justify-center px-2 py-3 mt-4">Odoslať overovací odkaz</button>
+                    <button type="submit" class="mt-5 block w-full rounded-md bg-primary px-3 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Odoslať overovací odkaz</button>
                 </form>
                 @if (session('status') === 'verification-link-sent')
                     <p class="mt-2 font-medium text-sm text-green-600">Overovací email bol odoslaný.</p>
