@@ -17,7 +17,7 @@
 				{{$tour->title}}
 			</a>
 		</h3>
-		<p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{$tour->shortBody()}}</p>
+		<p class="mt-5 text-sm leading-6 text-gray-600" style="overflow: hidden; display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */ line-clamp: 5; -webkit-box-orient: vertical;">{!! $tour->shortBody() !!}</p>
 		<p class="mt-3">
 			@foreach(explode(',', $tour->places) as $place)
 				<li class="text-gray-400"><span class="text-gray-600 text-sm">{{$place}}</span></li>

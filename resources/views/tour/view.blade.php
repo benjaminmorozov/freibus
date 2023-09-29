@@ -17,7 +17,7 @@
             </nav>
     
             <!-- Image gallery -->
-            <div class="mx-auto mt-6 sm:px-6 max-w-7xl grid grid-rows-2 grid-flow-col gap-4 lg:gap-x-8 lg:px-8 pb-8">
+            <div class="mx-auto mt-6 sm:px-6 max-w-7xl grid grid-rows-2 grid-flow-col gap-4 lg:gap-x-8 lg:px-8 pb-6">
                     @foreach($tour->images as $image)
                         @if($loop->index % 3 == 0 || $loop->index == 0)
                             <div class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block mb-5 row-span-2">
