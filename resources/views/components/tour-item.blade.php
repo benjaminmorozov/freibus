@@ -1,7 +1,7 @@
 <article class="flex flex-col justify-between">
 	<div class="overflow-hidden rounded-lg mb-5">
 		<a href="{{route('tourview', $tour)}}">
-			<img src="{{$tour->getThumbnail()}}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-48 w-full overflow-hidden">
+			<img src="{{$tour->getThumbnail()}}" alt="Tour image." class="object-cover h-48 w-full overflow-hidden">
 		</a>
 	</div>
 	<div class="flex items-center gap-x-4 text-xs">

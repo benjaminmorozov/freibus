@@ -38,16 +38,6 @@ class Pages extends Page implements HasForms
             ->schema([
                 Tabs::make('Label')
                 ->tabs([
-                    Tabs\Tab::make('O nás')
-                        ->schema([
-                            Section::make('O nás')
-                                ->schema([
-                                    Forms\Components\RichEditor::make('aboutText')
-                                        ->hiddenLabel()
-                                        ->default(\App\Models\Page::where('slug','about')->get()->value('body'))
-                                        ->columnSpanFull(),
-                                ])->collapsed(),
-                        ]),
                     Tabs\Tab::make('Všeobecné zmluvné podmienky')
                         ->schema([
                             Section::make('Všeobecné zmluvné podmienky')
@@ -116,10 +106,6 @@ class Pages extends Page implements HasForms
     public function save(): void
     {
         try {
-            $aboutText = \App\Models\Page::firstOrNew(['slug' =>  'about']);
-            $aboutText->body = $this->form->getState()['aboutText'];
-            $aboutText->title = 'O nás';
-            $aboutText->save();
             $termsText = \App\Models\Page::firstOrNew(['slug' =>  'termsconditions']);
             $termsText->body = $this->form->getState()['termsText'];
             $termsText->title = 'Všeobecné zmluvné podmienky';

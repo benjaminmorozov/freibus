@@ -24,8 +24,8 @@
                 <div class="lg:col-span-2 lg:col-start-1">
                     <!-- Description and details -->
                     <div>
-                        <div class="space-y-6">
-                            <p class="text-base text-gray-900">{!! $post->body !!}</p>
+                        <div class="my-6">
+                            <article class="text-gray-900 prose max-w-none leading-normal">{!! $post->body !!}</article>
                         </div>
                     </div>
                 </div>
@@ -33,3 +33,4 @@
         </div>
     </div>
 </x-app-layout>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>

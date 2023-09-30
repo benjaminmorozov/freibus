@@ -1,7 +1,7 @@
 <article class="flex flex-col justify-between mb-4">
 	<div class="overflow-hidden rounded-lg mb-5">
 		<a href="{{route('view', $post)}}">
-			<img src="{{$post->getThumbnail()}}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-48 w-full overflow-hidden">
+			<img src="{{$post->getThumbnail()}}" alt="Post image." class="object-cover h-48 w-full overflow-hidden">
 		</a>
 	</div>
 	<div class="flex items-center gap-x-4 text-xs">

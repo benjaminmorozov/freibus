@@ -25,7 +25,7 @@ class ContactController extends Controller
             'subject' => $request->get('subject'),
             'content' => $request->get('message'),
         ), function($message) use ($request){
-            $message->from('benjaminmorozov@stvorka.cloud'); // would be $request->email but outlook does not support SendAs
+            $message->from('mail@stvorka.cloud'); // would be $request->email but outlook does not support SendAs
             $message->to('benjaminmorozov@gmail.com')->subject($request->get('subject'));
         });
         return back()->with('success', 'Správa bola úspešne odoslaná!');

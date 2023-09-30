@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 use App\Models\Carousel;
 use App\Models\Social;
@@ -9,10 +10,10 @@ h2, .hero-title {
     font-family: 'Manrope', sans-serif;
 }
 .bg-primary {
-    background-color:{{Setting::where('name','accentColour')->get()->value('value')}};
+    background-color:{{Setting::where('name','accentColour')->get()->value('value')}} !important;
 }
 .hover\:bg-primary:hover {
-    background-color:{{Setting::where('name','modifierColour')->get()->value('value')}};
+    background-color:{{Setting::where('name','modifierColour')->get()->value('value')}} !important;
 }
 .bg-secondary {
     background-color:{{Setting::where('name','secondaryColour')->get()->value('value')}};
@@ -46,7 +47,6 @@ h2, .hero-title {
     border-color: ({{Setting::where('name','secondaryColour')->get()->value('value')}} / var(--tw-border-opacity));
 }
 </style>
-<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
@@ -67,11 +67,6 @@ h2, .hero-title {
             font-family: karla;
         }
     </style>
-
-    <!-- AlpineJS -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </head>
 <body class="bg-white font-family-karla">
 
@@ -91,7 +86,7 @@ h2, .hero-title {
                     <a href="/posts" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Aktuality a akcie</a>
                     <a href="/page/zbernydvor" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Zberný dvor</a>
                     <a href="/reviews" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Hodnotenia a recenzie</a>
-                    <a href="/contact" class="text-gray-800 text-sm font-semibold hover:text-primary">Kontakt</a>
+                    <a href="/about" class="text-gray-800 text-sm font-semibold hover:text-primary">O nás</a>
                 </div>
 
                 <div class="hidden sm:flex sm:items-center bg-primary
@@ -130,7 +125,7 @@ h2, .hero-title {
     <footer class="w-full border-t bg-white">
         <div class="w-full container mx-auto flex flex-col items-center">
             <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-                <a href="/page/about" class="uppercase px-3">O nás</a>
+                <a href="/about" class="uppercase px-3">O nás</a>
                 <a href="/page/privacypolicy" class="uppercase px-3">Ochrana osobných údajov</a>
                 <a href="/page/termsconditions" class="uppercase px-3">Všeobecné zmluvné podmienky</a>
                 <a href="/contact" class="uppercase px-3">Kontakt</a>
@@ -162,6 +157,9 @@ h2, .hero-title {
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
-
+    <!-- AlpineJS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </body>
 </html>

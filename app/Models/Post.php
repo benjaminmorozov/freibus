@@ -54,7 +54,7 @@ class Post extends Model
             'title' => $this->title,
             'slug' => $this->slug,
             'thumbnail' => 'https://stvorka.cloud'.$this->getThumbnail(),
-            'body' => strip_tags($this->body),
+            'body' => $this->body, //strip_tags($this->body) or str_replace('  ', ' ', strip_tags(str_replace( '<', '\n<','$this->body')))
             'published_at' => Carbon::parse($this->published_at)->locale('sk-SK')->translatedFormat('d. F Y'),
             'user_id' => $this->user_id,
             'created_at' => Carbon::parse($this->created_at)->locale('sk-SK')->translatedFormat('d. F Y'),

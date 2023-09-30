@@ -35,7 +35,6 @@
                     title: address,
                 });
                 latlngbounds.extend(results[0].geometry.location);
-                console.log(results[0].geometry.location);
                 var infoWindow = new google.maps.InfoWindow();
                 marker.addListener('click', ({ domEvent, latLng }) => {
                     const { target } = domEvent;

@@ -64,13 +64,15 @@ class TourResource extends Resource
                 Forms\Components\Card::make()
                     ->schema([
                         Forms\Components\Select::make('category_id')
-                        ->multiple()
-                        ->relationship('categories', 'name')
-                        ->required(),
+                            ->multiple()
+                            ->relationship('categories', 'name')
+                            ->required(),
                         Forms\Components\FileUpload::make('images')
-                        ->multiple()
-                        ->maxFiles(4)
-                        ->required(),
+                            ->multiple()
+                            ->maxFiles(4)
+                            ->optimize('webp')
+    	                    ->resize(25)
+                            ->required(),
                     ])->columnSpan(4),
             ])->columns(12);;
     }

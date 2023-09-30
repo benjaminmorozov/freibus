@@ -113,14 +113,15 @@
     
                 <div class="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pr-8">
                     <!-- Description and details -->
-                    <div class="space-y-6">
-                        <p class="text-base text-gray-900">{!! $tour->body !!}</p>
+                    <div class="my-6">
+                        <article class="text-gray-900 prose max-w-none leading-normal">{!! $tour->body !!}</article>
                     </div>
                 </div>
                 <div class="lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pr-8">
-                    <x-tourmap :tour='$tour' />
+                    <x-tour-map :tour='$tour' />
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>

@@ -47,7 +47,9 @@ class PostResource extends Resource
 
                 Forms\Components\Card::make()
                     ->schema([
-                        Forms\Components\FileUpload::make('thumbnail'),
+                        Forms\Components\FileUpload::make('thumbnail')
+                            ->optimize('webp')
+    	                    ->resize(25),
                     ])->columnSpan(4),
             ])->columns(12);
     }
