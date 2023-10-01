@@ -84,7 +84,7 @@ h2, .hero-title {
                     </a>
                 </div>
 
-                <div class="hidden sm:flex sm:items-center">
+                <div class="sm:flex sm:items-center">
                     <a href="/tours" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Cestovné destinácie</a>
                     <a href="/posts" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Aktuality a akcie</a>
                     <a href="/page/zbernydvor" class="text-gray-800 text-sm font-semibold hover:text-primary mr-8">Zberný dvor</a>
@@ -92,7 +92,7 @@ h2, .hero-title {
                     <a href="/about" class="text-gray-800 text-sm font-semibold hover:text-primary">O nás</a>
                 </div>
 
-                <div class="hidden sm:flex sm:items-center bg-primary
+                <div class="m:flex sm:items-center bg-primary
                 @if(Auth::check())
                 pl-5
                 pr-2
