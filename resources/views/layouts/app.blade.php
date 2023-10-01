@@ -55,6 +55,9 @@ h2, .hero-title {
     <meta name="author" content="">
     <meta name="description" content="">
 
+    <link rel="icon" href="{{ asset('/images/icon.ico') }}" sizes="any">
+    <link rel="icon" href="{{ asset('/images/icon.svg') }}" type="image/svg+xml">
+
     <!-- Tailwind -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

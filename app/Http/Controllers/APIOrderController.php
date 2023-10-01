@@ -64,7 +64,7 @@ class APIOrderController extends Controller
             'images' => collect($tour->images)->map(function($img){
                 return 'https://stvorka.cloud/storage/'.$img; //an equolent array turned into a collection, values of which were mapped onto a function that adds the url
             }),
-            'body' => strip_tags($tour->body),
+            'body' => $tour->body,
             'date' => Carbon::parse($tour->date)->locale('sk-SK')->translatedFormat('d F Y'),
             'login_id' => $order->login_id
         ];
@@ -91,7 +91,7 @@ class APIOrderController extends Controller
                 'images' => collect($tour->images)->map(function($img){
                     return 'https://stvorka.cloud/storage/'.$img; //an equolent array turned into a collection, values of which were mapped onto a function that adds the url
                 }),
-                'body' => strip_tags($tour->body),
+                'body' => $tour->body,
                 'date' => Carbon::parse($tour->date)->locale('sk-SK')->translatedFormat('d F Y'),
             ];
             array_push($json, $order_data);
@@ -124,7 +124,7 @@ class APIOrderController extends Controller
                 'images' => collect($tour->images)->map(function($img){
                     return 'https://stvorka.cloud/storage/'.$img; //an equolent array turned into a collection, values of which were mapped onto a function that adds the url
                 }),
-                'body' => strip_tags($tour->body),
+                'body' => $tour->body,
                 'date' => Carbon::parse($tour->date)->locale('sk-SK')->translatedFormat('d F Y'),
             ];
         } else {
