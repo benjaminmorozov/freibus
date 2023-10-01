@@ -34,6 +34,7 @@ Route::get('logout',  function() {
 // Route::view('/privacypolicy', 'basePages.privacypolicy');
 
 Route::view('/zbernydvor', 'zbernydvor');
+Route::view('/about', 'about');
 Route::get('/tours', [TourController::class, 'index'])->name('tours');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('view');
 Route::get('/page/{page:slug}', [PageController::class, 'show'])->name('pageview');

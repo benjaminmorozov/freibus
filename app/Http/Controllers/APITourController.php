@@ -87,6 +87,55 @@ class APITourController extends Controller
         }
     }
 
+    public function showMapMedian($id)
+    {
+        /*
+          This function returns an array with keys
+          "lat" =>  37.331741000000001
+          "lng" => -122.0303329
+          "accuracy" => "ROOFTOP"
+          "formatted_address" => "1 Infinite Loop, Cupertino, CA 95014, USA",
+          "viewport" => [
+            "northeast" => [
+              "lat" => 37.3330546802915,
+              "lng" => -122.0294342197085
+            ],
+            "southwest" => [
+              "lat" => 37.3303567197085,
+              "lng" => -122.0321321802915
+            ]
+          ]
+        */
+        $tour = Tour::find($id);
+        $json = [];
+        $latXTotal = 0;
+        $latYTotal = 0;
+        $lonDegreesTotal = 0;
+        if(!empty($tour))
+        {
+            // https://stackoverflow.com/questions/8564615/find-the-centroid-simple-mean-of-a-set-of-latlngs
+            $places =  explode(', ', $tour->places);
+            foreach($places as $place) {
+                $latDegrees = Geocoder::getCoordinatesForAddress($place)['lat'];
+                $lonDegrees = Geocoder::getCoordinatesForAddress($place)['lng'];
+
+                $latRadians = pi() * $latDegrees / 180;
+                $latXTotal += cos($latRadians);
+                $latYTotal += sin($latRadians);
+                $lonDegreesTotal += $lonDegrees;
+            }
+            $finalLatRadians = atan2($latYTotal, $latXTotal);
+            $finalLatDegrees = $finalLatRadians * 180 / pi();
+
+            $finalLonDegrees = $lonDegreesTotal / count($places);
+            return response()->json(["lat" => $finalLatDegrees, "lng" => $finalLonDegrees]);
+        } else {
+            return response()->json([
+                "message" => "Tour not found"
+            ], 404);
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
