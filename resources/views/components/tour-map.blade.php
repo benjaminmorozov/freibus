@@ -53,4 +53,4 @@
 }
 </script>
 <!-- Include the Google Maps JavaScript API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDiJ8BswlHg2xLNYXz04I782MvxwcSpYk&callback=initMap&language=sk-SK" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{config('geocoder.key')}}&callback=initMap&language=sk-SK" async defer></script>
