@@ -44,6 +44,7 @@ Route::get('/tours/{tour:slug}', [TourController::class, 'show'])->name('tourvie
 Route::get('search', [TourController::class, 'search'])->name('search');
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 //Route::view('/reviews', 'reviews');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
