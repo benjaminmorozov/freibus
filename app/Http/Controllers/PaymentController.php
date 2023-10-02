@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Stripe;
 use Session;
 use App\Models\Order;
+use App\Models\Tour;
 
 class PaymentController extends Controller
 {
@@ -30,7 +31,8 @@ class PaymentController extends Controller
                 "description" => "Freibus rezervácia - č. obj. ".$order->id 
         ]);
         $order = Session::get('order');
-        $data = array('id' => $order->id, 'price' => $order->price, 'tour_id' => $order->tour_id, 'login_id' => $order->login_id);
+        $tour = Tour::query()->where('tours.id', '=', $order->tour_id)->first();
+        $data = array('id' => $order->id, 'price' => $order->price, 'tour_id' => $order->tour_id, 'login_id' => $order->login_id, 'name' => $tour->title);
    
         \Mail::send(['text'=>'invoicemail'], $data, function($message) use ($order) {
            $message->to($order->email, $order->name)->subject
