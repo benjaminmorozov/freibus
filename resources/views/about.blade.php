@@ -34,17 +34,17 @@
 				<dl class="grid grid-cols-1 gap-x-8 text-center lg:grid-cols-3">
 					<div class="mx-auto flex max-w-xs flex-col gap-y-4">
 						<div class="overflow-hidden rounded-lg">
-							<img src="{{ asset('/images/officepeople.jpeg') }}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-48 w-full overflow-hidden">
+							<img src="{{ asset('/images/1.jpg') }}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-96 w-full overflow-hidden">
 						</div>
 					</div>
 					<div class="mx-auto flex max-w-xs flex-col gap-y-4">
 						<div class="overflow-hidden rounded-lg">
-							<img src="{{ asset('/images/officepeople.jpeg') }}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-48 w-full overflow-hidden">
+							<img src="{{ asset('/images/2.jpg') }}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-96 w-full overflow-hidden">
 						</div>
 					</div>
 					<div class="mx-auto flex max-w-xs flex-col gap-y-4">
 						<div class="overflow-hidden rounded-lg">
-							<img src="{{ asset('/images/officepeople.jpeg') }}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-48 w-full overflow-hidden">
+							<img src="{{ asset('/images/3.jpg') }}" alt="Two each of gray, white, and black shirts laying flat." class="object-cover h-96 w-full overflow-hidden">
 						</div>
 					</div>
 				</dl>

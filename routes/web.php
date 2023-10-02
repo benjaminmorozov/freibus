@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,9 @@ Route::get('/tours/{tour:slug}', [TourController::class, 'show'])->name('tourvie
 Route::get('search', [TourController::class, 'search'])->name('search');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+// payment
+Route::post('/order', [PaymentController::class, 'post'])->name('stripe.post');
 
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('/tours/{tour:slug}/order', [OrderController::class, 'index'])->name('order');

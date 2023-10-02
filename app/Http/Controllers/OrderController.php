@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 use App\Models\Tour;
 use App\Models\Order;
+use Session;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -31,7 +32,7 @@ class OrderController extends Controller
         ]);
         
         $order = Order::create(['user_id' => Auth::id(), 'name' => $request->name, 'email' => $request->email, 'address' => $request->address.', '.$request->city.' '.$request->psc, 'price' => $request->adults*$tour->priceadults+$request->students*$tour->pricestudents+$request->children*$tour->pricechildren, 'tour_id' => $tour->id, 'login_id' =>rand(100000, 999999)]);
-        
+        Session::put('order', $order);
         return view('tour.gateway', compact('order'));
     }
 }
