@@ -1,10 +1,11 @@
 <x-app-layout>
     <div class="container justify-center mx-auto flex flex-wrap py-4">
 	<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
         		    Objednávky
         		</h1>
-        		@foreach ($user->order as $order)
+				@if(!$user->order)
+				@foreach ($user->order as $order)
 				<p>
 					{{$order->id}}
 					{{$order->name}}
@@ -13,6 +14,9 @@
 					{{App\Models\Tour::query()->orderBy('tours.date', 'desc')->join('category_tour', 'tours.id', '=', 'category_tour.tour_id')->join('categories', 'categories.id', '=', 'category_tour.category_id')->where('tours.id', '=', $order->tour_id)->first()->title}}
 				</p>
 				@endforeach
+				@else
+				<p class="text-center">Nemáte žiadne objednávky</p>
+				@endif
         	</div>
         <div class="w-full dark:bg-gray-800 dark:border-gray-700 flex flex-row">
             <div class="w-1/2 basis-1/3 p-6 space-y-4 md:space-y-6 sm:p-8">

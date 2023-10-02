@@ -11,6 +11,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,9 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('view');
 Route::get('/page/{page:slug}', [PageController::class, 'show'])->name('pageview');
 Route::get('/tours/{tour:slug}', [TourController::class, 'show'])->name('tourview');
 Route::get('search', [TourController::class, 'search'])->name('search');
+
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews');
+//Route::view('/reviews', 'reviews');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
