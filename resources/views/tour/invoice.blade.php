@@ -6,10 +6,10 @@ $tour = Tour::query()->where('tours.id', '=', $order->tour_id)->first();
     <div class="container justify-center mx-auto flex flex-wrap py-4">
         <div class="w-full justify-center rounded-lg dark:border dark:bg-gray-800 dark:border-gray-700 flex flex-row">
             <div class="w-full p-6 space-y-4 md:space-y-6 sm:p-8">
-				<div class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8">
-            		<div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-						<h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-        		    		Objednávka - {{ $order->id }}
+				<div class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8">
+            		<div class="">
+						<h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white pb-2">
+        		    		Fakúra - objednávka č. {{ $order->id }}
         				</h1>
                     	<div class="space-y-6">
 						<article class="flex flex-col justify-between">
@@ -68,7 +68,11 @@ $tour = Tour::query()->where('tours.id', '=', $order->tour_id)->first();
 							</div>
 							<div class="mt-5">
 								<span class="text-sm text-gray-600">Celková cena</span>
-						        <p id="preview" class="text-3xl tracking-tight text-gray-900">0.00€<!-- will be filled by js --></p>
+						        <p id="preview" class="text-3xl tracking-tight text-gray-900">{{ $order->price }}.00€<!-- will be filled by js --></p>
+							</div>
+							<div class="mt-5">
+								<span class="text-sm text-gray-600">Prihlasovací kód na aplikáciu</span>
+						        <p id="preview" class="text-3xl tracking-tight text-gray-900">{{ $order->login_id }}<!-- will be filled by js --></p>
 							</div>
 						</article>
                     	</div>
