@@ -7,7 +7,7 @@
                 <h2 class="text-lg sm:text-xl font-bold text-primary uppercase pb-1 mb-1">Recenzie</h2>
 
                 @foreach($reviews as $review)
-                    <x-post-item :post="$review"></x-post-item>
+                    <x-review-item :post="$review"></x-review-item>
                 @endforeach
 
             </section>
