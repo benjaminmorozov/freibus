@@ -29,6 +29,14 @@ class PaymentController extends Controller
                 "source" => $request->stripeToken,
                 "description" => "Freibus rezervácia - č. obj. ".$order->id 
         ]);
+        $order = Session::get('order');
+        $data = array('id' => $order->id, 'price' => $order->price, 'tour_id' => $order->tour_id, 'login_id' => $order->login_id);
+   
+        \Mail::send(['text'=>'invoicemail'], $data, function($message) use ($order) {
+           $message->to($order->email, $order->name)->subject
+              ('Objednávka č.'.$order->id);
+           $message->from('mail@stvorka.cloud','freibus.sk');
+        });
 
         Session::flash('success', 'Payment successful!');
         return view('tour.invoice', compact('order'));

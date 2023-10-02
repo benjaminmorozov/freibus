@@ -9,7 +9,7 @@ $tour = Tour::query()->where('tours.id', '=', $order->tour_id)->first();
 				<div class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8">
             		<div class="">
 						<h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white pb-2">
-        		    		Fakúra - objednávka č. {{ $order->id }}
+        		    		Faktúra - objednávka č. {{ $order->id }}
         				</h1>
                     	<div class="space-y-6">
 						<article class="flex flex-col justify-between">
