@@ -1,23 +1,36 @@
 <x-app-layout>
     <div class="container justify-center mx-auto flex flex-wrap py-4">
-	<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+		<div class="p-6 space-y-4 md:space-y-2 sm:p-2">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
         		    Objednávky
         		</h1>
-				@if(!$user->order)
-				@foreach ($user->order as $order)
-				<p>
-					{{$order->id}}
-					{{$order->name}}
-					{{$order->address}}
-					{{$order->price}}
-					{{App\Models\Tour::query()->orderBy('tours.date', 'desc')->join('category_tour', 'tours.id', '=', 'category_tour.tour_id')->join('categories', 'categories.id', '=', 'category_tour.category_id')->where('tours.id', '=', $order->tour_id)->first()->title}}
-				</p>
-				@endforeach
+				@if($user->order)
+					<table class="table-auto">
+  						<thead>
+  						  <tr>
+  						    <th class="border-separate p-5">Číslo</th>
+  						    <th class="border-separate p-5">Meno a priezvisko</th>
+  						    <th class="border-separate p-5">Adresa</th>
+							<th class="border-separate p-5">Cena</th>
+							<th class="border-separate p-5">Prihlasovací kód</th>
+  						  </tr>
+  						</thead>
+  						<tbody>
+						  	@foreach ($user->order as $order)
+  						  	<tr>
+  						    	<td class="text-center">{{$order->id}}</td>
+  						    	<td>{{$order->name}}</td>
+  						    	<td>{{$order->address}}</td>
+								<td class="text-center">{{$order->price}}€</td>
+								<td class="text-center">{{$order->login_id}}</td>
+  						  	</tr>
+							@endforeach
+  						</tbody>
+					</table>
 				@else
 				<p class="text-center">Nemáte žiadne objednávky</p>
 				@endif
-        	</div>
+        </div>
         <div class="w-full dark:bg-gray-800 dark:border-gray-700 flex flex-row">
             <div class="w-1/2 basis-1/3 p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
